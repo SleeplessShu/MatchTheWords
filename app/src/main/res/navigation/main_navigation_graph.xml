@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.spanishwords.settings.presentation.SettingsFragment"
+        android:name="com.sleeplessdog.matchthewords.settings.presentation.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/settings_fragment" />
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.spanishwords.game.presentation.GameFragment"
+        android:name="com.sleeplessdog.matchthewords.game.presentation.GameFragment"
         android:label="GameFragment" >
         <action
             android:id="@+id/action_gameFragment_to_scoreFragment"
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/scoreFragment"
-        android:name="com.example.spanishwords.score.presentation.ScoreFragment"
+        android:name="com.sleeplessdog.matchthewords.score.presentation.ScoreFragment"
         android:label="ScoreFragment" >
         <action
             android:id="@+id/action_scoreFragment_to_settingsFragment"

@@ -169,4 +169,10 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">#E6E8EB</item>
     </style>
+
+    <style name="Stats_notions" parent="Stats">
+        <item name="android:textColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+
 </resources>

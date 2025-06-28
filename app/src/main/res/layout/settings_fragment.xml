@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
     android:orientation="vertical"
-    tools:context="com.example.spanishwords.settings.presentation.SettingsFragment">
+    tools:context="com.sleeplessdog.matchthewords.settings.presentation.SettingsFragment">
 
 
     <TextView

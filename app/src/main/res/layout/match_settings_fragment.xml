@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftBorder"
         android:layout_width="wrap_content"
@@ -20,23 +28,10 @@
         app:layout_constraintGuide_end="@dimen/padding_large" />
 
     <TextView
-        android:id="@+id/tvMatchSettings"
-        style="@style/Header_ver2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_20dp"
-        android:paddingTop="@dimen/padding_largeXL"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/first_language"
-        style="@style/Stats"
+        style="@style/Stats_notions"
         android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_largeXL"
         android:gravity="center"
         android:text="1st language"
         app:layout_constraintEnd_toEndOf="@id/rightBorder"
@@ -63,11 +58,11 @@
         android:layout_marginVertical="6dp"
         android:background="@color/bluegreen"
         android:gravity="center"
-        tools:text="spanish"
         app:layout_constraintBottom_toBottomOf="@id/bl_language1"
         app:layout_constraintEnd_toStartOf="@id/br_language1"
         app:layout_constraintStart_toEndOf="@id/bl_language1"
-        app:layout_constraintTop_toTopOf="@id/bl_language1" />
+        app:layout_constraintTop_toTopOf="@id/bl_language1"
+        tools:text="spanish" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/br_language1"
@@ -82,7 +77,7 @@
 
     <TextView
         android:id="@+id/second_language"
-        style="@style/Stats"
+        style="@style/Stats_notions"
         android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_medium"
@@ -112,11 +107,11 @@
         android:layout_marginVertical="6dp"
         android:background="@color/bluegreen"
         android:gravity="center"
-        tools:text="russian"
         app:layout_constraintBottom_toBottomOf="@id/bl_language2"
         app:layout_constraintEnd_toStartOf="@id/br_language2"
         app:layout_constraintStart_toEndOf="@id/bl_language2"
-        app:layout_constraintTop_toTopOf="@id/bl_language2" />
+        app:layout_constraintTop_toTopOf="@id/bl_language2"
+        tools:text="russian" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/br_language2"
@@ -132,7 +127,7 @@
 
     <TextView
         android:id="@+id/wordsLevel"
-        style="@style/Stats"
+        style="@style/Stats_notions"
         android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_medium"
@@ -163,11 +158,11 @@
         android:layout_marginVertical="6dp"
         android:background="@color/bluegreen"
         android:gravity="center"
-        tools:text="a1"
         app:layout_constraintBottom_toBottomOf="@id/bl_WordsLevel"
         app:layout_constraintEnd_toStartOf="@id/br_WordsLevel"
         app:layout_constraintStart_toEndOf="@id/bl_WordsLevel"
-        app:layout_constraintTop_toTopOf="@id/bl_WordsLevel" />
+        app:layout_constraintTop_toTopOf="@id/bl_WordsLevel"
+        tools:text="a1" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/br_WordsLevel"
@@ -183,7 +178,7 @@
 
     <TextView
         android:id="@+id/difficult"
-        style="@style/Stats"
+        style="@style/Stats_notions"
         android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_medium"
@@ -213,11 +208,11 @@
         android:layout_marginVertical="6dp"
         android:background="@color/bluegreen"
         android:gravity="center"
-        tools:text="medium"
         app:layout_constraintBottom_toBottomOf="@id/bl_Difficult"
         app:layout_constraintEnd_toStartOf="@id/br_Difficult"
         app:layout_constraintStart_toEndOf="@id/bl_Difficult"
-        app:layout_constraintTop_toTopOf="@id/bl_Difficult" />
+        app:layout_constraintTop_toTopOf="@id/bl_Difficult"
+        tools:text="medium" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/br_Difficult"
@@ -233,7 +228,7 @@
 
     <TextView
         android:id="@+id/wordsTheme"
-        style="@style/Stats"
+        style="@style/Stats_notions"
         android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_medium"
@@ -250,7 +245,6 @@
         android:backgroundTint="@color/bluegreen"
         android:src="@drawable/arrow_left"
         android:tint="@color/greyLight"
-        app:layout_constraintEnd_toStartOf="@id/tvDifficult"
         app:layout_constraintStart_toStartOf="@id/leftBorder"
         app:layout_constraintTop_toBottomOf="@id/wordsTheme" />
 
@@ -263,11 +257,11 @@
         android:layout_marginVertical="6dp"
         android:background="@color/bluegreen"
         android:gravity="center"
-        tools:text="medium"
         app:layout_constraintBottom_toBottomOf="@id/bl_wordsCategory"
         app:layout_constraintEnd_toStartOf="@id/br_Difficult"
         app:layout_constraintStart_toEndOf="@id/bl_Difficult"
-        app:layout_constraintTop_toTopOf="@id/bl_wordsCategory" />
+        app:layout_constraintTop_toTopOf="@id/bl_wordsCategory"
+        tools:text="medium" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/br_wordsCategory"
@@ -277,22 +271,23 @@
         android:src="@drawable/arrow_right"
         android:tint="@color/greyLight"
         app:layout_constraintEnd_toEndOf="@id/rightBorder"
-        app:layout_constraintStart_toEndOf="@id/tvWordsCategory"
+
         app:layout_constraintTop_toTopOf="@id/bl_wordsCategory" />
-
-
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b_new_game"
-        android:layout_width="wrap_content"
+        style="@style/Stats"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/padding_largeXL"
-        android:background="@drawable/word_background_default"
-        android:paddingHorizontal="@dimen/dim_20dp"
+        android:layout_marginHorizontal="4dp"
+        android:paddingVertical="@dimen/dim_30dp"
+        android:layout_marginTop="@dimen/padding_large"
+        android:background="@color/bluegreen"
         android:text="@string/button_text_start_game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/br_wordsCategory"
+        app:layout_constraintStart_toStartOf="@id/bl_wordsCategory"
+        app:layout_constraintTop_toBottomOf="@id/tvWordsCategory" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

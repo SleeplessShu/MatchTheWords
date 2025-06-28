@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.spanishwords"
+    namespace = "com.sleeplessdog.matchthewords"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.spanishwords"
+        applicationId = "com.sleeplessdog.matchthewords"
         minSdk = 34
         targetSdk = 34
         versionCode = 1
