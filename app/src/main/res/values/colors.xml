@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="day_background">#F7F7EB</color>
+    <color name="day_darkGreen">#1D2E27</color>
+    <color name="day_lightGreen">#00AE6A</color>
+
+
     <color name="black">#1A1B22</color>
     <color name="black_0.25">#401A1B22</color>
     <color name="white">#FFFFFFFF</color>
