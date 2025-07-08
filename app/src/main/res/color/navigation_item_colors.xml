@@ -3,5 +3,5 @@
     <!-- Цвет для активного (выбранного) элемента -->
     <item android:color="?attr/colorOnPrimary" android:state_checked="true" />
     <!-- Цвет для неактивного элемента -->
-    <item android:color="@color/bluegreen" android:state_checked="false" />
+    <item android:color="?attr/colorOnSecondary" android:state_checked="false" />
 </selector>

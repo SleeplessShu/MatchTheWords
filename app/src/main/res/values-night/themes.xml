@@ -5,13 +5,13 @@
         <item name="android:statusBarColor">@color/black</item>
         <item name="android:navigationBarColor">@color/black</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/black</item> <!-- Кнопки -->
+        <item name="colorPrimary">@color/day_darkGreen</item> <!-- Кнопки -->
         <item name="colorPrimaryVariant">@color/white</item>  <!-- Иконки -->
-        <item name="colorOnPrimary">@color/white</item> <!-- Текст -->
+        <item name="colorOnPrimary">@color/day_lightGreen</item> <!-- Текст -->
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/black</item>
         <item name="colorSecondaryVariant">@color/white</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/day_background</item>
 
         <item name="colorSwitcherTop">@color/blue</item>
         <item name="colorSwitcherBottom">@color/blueLight</item>

@@ -7,11 +7,11 @@
     <item name="android:navigationBarColor">@color/white</item>
     <item name="android:windowLightNavigationBar">true</item>
 
-    <!-- Primary brand color. -->
-    <item name="colorPrimary">@color/day_background</item> <!-- Кнопки -->
-    <item name="colorPrimaryVariant">@color/grey</item>  <!-- Иконки -->
-    <item name="colorOnPrimary">@color/day_lightGreen</item> <!-- Текст -->
-    <!-- Secondary brand color. -->
+
+    <item name="colorPrimary">@color/day_background</item>
+    <item name="colorPrimaryVariant">@color/grey</item>
+    <item name="colorOnPrimary">@color/day_lightGreen</item>
+
     <item name="colorSecondary">@color/blue</item>
     <item name="colorSecondaryVariant">@color/white</item>
     <item name="colorOnSecondary">@color/day_darkGreen</item>

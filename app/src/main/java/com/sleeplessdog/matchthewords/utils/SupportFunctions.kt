@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 
-class SupportFunctions {
+class SupportFunctions() {
     fun <T> switchItem(currentItem: T?, items: Array<T>, isNext: Boolean): T {
         val currentIndex = items.indexOf(currentItem).takeIf { it != -1 } ?: 0
         return if (isNext) {
@@ -53,4 +53,6 @@ class SupportFunctions {
             DifficultLevel.SURVIVAL -> 1
         }
     }
+
+
 }

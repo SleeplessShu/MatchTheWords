@@ -15,7 +15,6 @@
         android:layout_marginVertical="@dimen/dim_24dp"
         android:gravity="center"
         android:text="@string/score"
-        android:textColor="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -20,36 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/padding_small"
         android:layout_marginTop="16dp"
-        android:background="@drawable/word_background_default"
         android:padding="@dimen/padding_medium"
         app:layout_constraintEnd_toEndOf="@id/rvWordsList"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/rvWordsList"
         app:layout_constraintTop_toTopOf="parent">
-        <!--
-        <TextView
-            android:id="@+id/tvLives"
-            style="@style/Stats"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lives left:"
 
-            app:layout_constraintEnd_toStartOf="@id/tv_Score"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_Score"
-            style="@style/Stats"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tvLives"
-            app:layout_constraintTop_toTopOf="@id/tvLives"
-            app:layout_constraintBottom_toBottomOf="@id/tvLives"
-            android:text="Session score:" />
--->
         <TextView
             android:id="@+id/tvScores"
             style="@style/Stats"
@@ -64,8 +40,7 @@
             android:id="@+id/heart1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:src="@drawable/ic_heart_full"
+            android:src="@drawable/heart2"
             app:layout_constraintEnd_toStartOf="@id/heart2"
             app:layout_constraintStart_toStartOf="@id/statsBlock"
             app:layout_constraintTop_toTopOf="@id/statsBlock" />
@@ -75,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:src="@drawable/ic_heart_full"
+            android:src="@drawable/heart2"
             app:layout_constraintStart_toEndOf="@id/heart1"
             app:layout_constraintTop_toTopOf="@id/heart1" />
 
@@ -84,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
-            android:src="@drawable/ic_heart_empty"
+            android:src="@drawable/heart2"
             app:layout_constraintStart_toEndOf="@id/heart2"
             app:layout_constraintTop_toTopOf="@id/heart2" />
 

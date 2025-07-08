@@ -1,24 +1,14 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Тень (справа и снизу) -->
-    <item>
-        <shape>
-            <solid android:color="@color/bluegreen2" />
-            <padding
-                android:bottom="@dimen/shadow_padding"
-                android:right="@dimen/shadow_padding" />
-            <corners
-                android:bottomLeftRadius="@dimen/radius_medium"
-                android:topRightRadius="@dimen/radius_medium"
-                android:topLeftRadius="@dimen/radius_medium"/>
-        </shape>
-    </item>
-    <item>
-        <shape>
-            <solid android:color="@color/bluegreen" />
-            <corners
-                android:topLeftRadius="@dimen/radius_small"
-                android:topRightRadius="@dimen/radius_small"
-                android:bottomLeftRadius="@dimen/radius_small" />
-        </shape>
-    </item>
-</layer-list>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="180dp"
+    android:height="80dp"
+    android:viewportWidth="180"
+    android:viewportHeight="80">
+    <path
+        android:pathData="M25,5L155,5A25,25 0,0 1,180 30L180,55A25,25 0,0 1,155 80L25,80A25,25 0,0 1,0 55L0,30A25,25 0,0 1,25 5z"
+        android:fillColor="?attr/colorOnSecondary"/>
+    <path
+        android:pathData="M25,1.5L155,1.5A23.5,23.5 0,0 1,178.5 25L178.5,49A23.5,23.5 0,0 1,155 72.5L25,72.5A23.5,23.5 0,0 1,1.5 49L1.5,25A23.5,23.5 0,0 1,25 1.5z"
+        android:strokeWidth="3"
+        android:fillColor="?attr/colorPrimary"
+        android:strokeColor="?attr/colorOnSecondary"/>
+</vector>

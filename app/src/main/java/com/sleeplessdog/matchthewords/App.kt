@@ -19,7 +19,6 @@ import org.koin.java.KoinJavaComponent.getKoin
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-
         appContext = applicationContext
         Log.d("DEBUG", "onCreate: ${appContext.getDatabasePath("dictionary_new.db")}")
         startKoin {

@@ -36,6 +36,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_line"
+        app:itemTextAppearanceActive="@style/BottomNavTextActive"
+        app:itemTextAppearanceInactive="@style/BottomNavTextInactive"
         app:itemIconTint="@color/navigation_item_colors"
         app:itemTextColor="@color/navigation_item_colors"
         android:background="?attr/colorPrimary"

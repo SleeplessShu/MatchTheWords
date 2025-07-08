@@ -76,19 +76,19 @@ class WordsMatchingFragment : Fragment(R.layout.words_matching_fragment) {
     private fun setHearts(heartsQuantity: Int) {
         when (heartsQuantity) {
             3 -> {
-                binding.heart1.setImageResource(R.drawable.ic_heart_full)
-                binding.heart2.setImageResource(R.drawable.ic_heart_full)
-                binding.heart3.setImageResource(R.drawable.ic_heart_full)
+                binding.heart1.setImageResource(R.drawable.heart2)
+                binding.heart2.setImageResource(R.drawable.heart2)
+                binding.heart3.setImageResource(R.drawable.heart2)
             }
 
             2 -> {
-                binding.heart1.setImageResource(R.drawable.ic_heart_full)
-                binding.heart2.setImageResource(R.drawable.ic_heart_full)
+                binding.heart1.setImageResource(R.drawable.heart2)
+                binding.heart2.setImageResource(R.drawable.heart2)
                 binding.heart3.setImageResource(R.drawable.ic_heart_empty)
             }
 
             1 -> {
-                binding.heart1.setImageResource(R.drawable.ic_heart_full)
+                binding.heart1.setImageResource(R.drawable.heart2)
                 binding.heart2.setImageResource(R.drawable.ic_heart_empty)
                 binding.heart3.setImageResource(R.drawable.ic_heart_empty)
             }

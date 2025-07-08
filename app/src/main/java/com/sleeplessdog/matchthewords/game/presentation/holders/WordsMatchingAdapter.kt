@@ -1,6 +1,7 @@
 package com.sleeplessdog.matchthewords.game.presentation.holders
 
 import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -50,7 +51,6 @@ class WordsMatchingAdapter(
         )
         holder.translate.isEnabled = translate !in usedWords
         holder.translate.setOnClickListener { onWordClick(translate) }
-
     }
 
 
@@ -69,7 +69,7 @@ class WordsMatchingAdapter(
     private fun getTextColor(word: Word): Int {
         return when (word) {
             in usedWords -> ContextCompat.getColor(context, R.color.black_0_25)
-            else -> ContextCompat.getColor(context, R.color.white)
+            else -> ContextCompat.getColor(context, R.color.day_darkGreen)
         }
     }
 
@@ -99,6 +99,12 @@ class WordsMatchingAdapter(
     fun updateUsedWords(newUsedWords: List<Word>) {
         usedWords = newUsedWords
         notifyDataSetChanged()
+    }
+
+    fun Context.getThemeColor(attr: Int): Int {
+        val typedValue = TypedValue()
+        theme.resolveAttribute(attr, typedValue, true)
+        return typedValue.data
     }
 }
 

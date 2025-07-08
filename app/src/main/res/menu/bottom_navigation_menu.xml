@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/gameFragment"
-        android:icon="@drawable/ic_game"
+        android:icon="@drawable/icon"
         android:title="@string/game" />
     <item
         android:id="@+id/scoreFragment"
-        android:icon="@drawable/ic_crown"
+        android:icon="@drawable/icon"
         android:title="@string/score" />
     <item
         android:id="@+id/settingsFragment"
-        android:icon="@drawable/ic_settings_v3"
+        android:icon="@drawable/icon"
         android:title="@string/settings" />
 </menu>
