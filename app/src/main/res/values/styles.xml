@@ -1,67 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-
-    <style name="PageHeaderStyle">
-        <!-- <item name=""></item>*/ -->
-    </style>
-
     <style name="AppName">
         <item name="android:textColor">?attr/colorSecondaryVariant</item>
         <item name="android:textSize">@dimen/ts_22sp</item>
-
     </style>
 
-
-    <style name="PM2_Header_Image">
-        <item name="android:tint">?attr/colorOnPrimary</item>
-    </style>
-
-    <style name="PM2_Header_Text">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textSize">@dimen/ts_22sp</item>
-
-    </style>
-
-
-    <style name="SettingsStyle">
-        <item name="android:textSize">@dimen/ts_16sp</item>
-        <item name="android:textColor">?attr/colorOnSecondary</item>
-        <item name="iconTint">?attr/colorOnSecondary</item>
-        <item name="android:drawableTint">?attr/colorOnSecondary</item>
+    <style name="BottomNavTextActive" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
     </style>
 
-
-    <style name="corner_radius">
-        <item name="cornerRadius">@dimen/dim_54dp</item>/>
-    </style>
-    >
-
-    <style name="TabLayout" parent="Widget.MaterialComponents.TabLayout">
-
-        <item name="android:textSize">14sp</item>
-        <item name="tabTextAppearance">@android:style/TextAppearance.Widget.TabWidget</item>
+    <style name="BottomNavTextInactive" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
     </style>
 
-    <style name="InfoText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">16dp</item>
-    </style>
-
-    <style name="CustomTabTextAppearance" parent="Theme.MatchTheWords">
-        <item name="android:textAllCaps">false</item>
-        <item name="android:textSize">@dimen/ts_14sp</item>
-
-    </style>
-
-
-    <style name="Header" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <!--HEADERS-->
+    <style name="Header_v1" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">48sp</item>
         <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
     </style>
@@ -70,10 +26,29 @@
         <item name="android:textSize">@dimen/ts_22sp</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
-
     </style>
 
-    <style name="Words">
+    <!--SETTINGS-->
+    <style name="SettingsStyle">
+        <item name="android:textSize">@dimen/ts_16sp</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="iconTint">?attr/colorOnSecondary</item>
+        <item name="android:drawableTint">?attr/colorOnSecondary</item>
+        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
+    </style>
+
+    <style name="ThemeSwitch">
+        <item name="android:textSize">@dimen/ts_16sp</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
+        <item name="thumbTint">?attr/colorOnSecondary</item>
+        <item name="trackTint">?attr/colorOnPrimary</item>
+        <item name="android:drawableTint">?attr/colorOnPrimary</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+    </style>
+
+    <!--WORDS-->
+    <style name="Words_style">
         <item name="android:textSize">@dimen/ts_16sp</item>
         <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
         <item name="android:textAllCaps">false</item>
@@ -83,6 +58,7 @@
         <item name="android:paddingHorizontal">@dimen/padding_small</item>
     </style>
 
+    <!--START_GAME-->
     <style name="Stats">
         <item name="android:textSize">18sp</item>
         <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
@@ -128,7 +104,6 @@
     </style>
 
     <style name="Stats_buttons_start" parent="Stats">
-
         <item name="android:textSize">22sp</item>
         <item name="android:layout_marginHorizontal">16dp</item>
         <item name="android:background">@drawable/button_large</item>
@@ -137,36 +112,7 @@
         <item name="android:paddingBottom">16dp</item>
     </style>
 
-
-    <!--BOTTOM NAVIGATION STYLE-->
-    <style name="BottomNavTextActive" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">@color/darkorange</item>
-        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
-    </style>
-
-    <style name="BottomNavTextInactive" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/dark_red</item>
-        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
-    </style>
-
-    <style name="ThemeSwitch">
-        <item name="android:textSize">@dimen/ts_16sp</item>
-        <item name="android:textColor">?attr/colorOnBackground</item> <!-- Цвет текста -->
-        <item name="android:fontFamily">@font/murs_gothic_wide_dark</item>
-
-        <!-- Цвета тумблера -->
-        <item name="thumbTint">?attr/colorOnSecondary</item>
-        <item name="trackTint">?attr/colorOnPrimary</item>
-
-        <!-- Цвет иконки, если есть drawable -->
-        <item name="android:drawableTint">?attr/colorOnPrimary</item>
-
-        <!-- Constraint Layout, если нужно -->
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-    </style>
-
+    <!--END_GAME-->
     <style name="End_game_buttons">
         <item name="android:layout_width">160dp</item>
         <item name="android:layout_height">68dp</item>

@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bOrigin"
-        style="@style/Words"
+        style="@style/Words_style"
         android:layout_width="0dp"
         android:layout_height="68dp"
         android:layout_marginEnd="@dimen/padding_small"
@@ -21,7 +21,7 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bTranslate"
-        style="@style/Words"
+        style="@style/Words_style"
         android:layout_width="0dp"
         android:layout_height="68dp"
         tools:text="intelligente"
