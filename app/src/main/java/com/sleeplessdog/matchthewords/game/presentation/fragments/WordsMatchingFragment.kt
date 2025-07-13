@@ -84,19 +84,19 @@ class WordsMatchingFragment : Fragment(R.layout.words_matching_fragment) {
             2 -> {
                 binding.heart1.setImageResource(R.drawable.heart2)
                 binding.heart2.setImageResource(R.drawable.heart2)
-                binding.heart3.setImageResource(R.drawable.ic_heart_empty)
+                binding.heart3.setImageResource(R.drawable.ic_face)
             }
 
             1 -> {
                 binding.heart1.setImageResource(R.drawable.heart2)
-                binding.heart2.setImageResource(R.drawable.ic_heart_empty)
-                binding.heart3.setImageResource(R.drawable.ic_heart_empty)
+                binding.heart2.setImageResource(R.drawable.ic_face)
+                binding.heart3.setImageResource(R.drawable.ic_face)
             }
 
             0 -> {
-                binding.heart1.setImageResource(R.drawable.ic_heart_empty)
-                binding.heart2.setImageResource(R.drawable.ic_heart_empty)
-                binding.heart3.setImageResource(R.drawable.ic_heart_empty)
+                binding.heart1.setImageResource(R.drawable.ic_face)
+                binding.heart2.setImageResource(R.drawable.ic_face)
+                binding.heart3.setImageResource(R.drawable.ic_face)
             }
 
         }

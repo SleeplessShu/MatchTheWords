@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--MAIN-->
     <color name="day_background">#F7F7EB</color>
     <color name="day_darkGreen">#1D2E27</color>
     <color name="day_lightGreen">#00AE6A</color>
+
+    <!--ITEM-->
     <color name="item_selected">#FFF0CF</color>
     <color name="item_wrong">#FF6558</color>
     <color name="item_correct">#01B971</color>
     <color name="item_default">#F7F7EB</color>
     <color name="item_used">#C5C5C5</color>
 
-
-
-    <color name="black">#1A1B22</color>
+    <!--SUPPORT_COLORS-->
+    <color name="bluegreen">#125359</color>
     <color name="black_0.25">#401A1B22</color>
+
+<!--
+    <color name="black">#1A1B22</color>
     <color name="white">#FFFFFFFF</color>
     <color name="white_0.25">#40FFFFFF</color>
     <color name="blue">#3772E7</color>
     <color name="blueLight">#9FBBF3</color>
     <color name="grey">#AEAFB4</color>
     <color name="greyLight">#E6E8EB</color>
-
-
-
-
-    <!--новые цвета-->
     <color name="darkblue">#111D35</color>
     <color name="bluegreen">#125359</color>
     <color name="bluegreen2">#01272A</color>
@@ -36,5 +36,5 @@
     <color name="heart_border">#BE1250</color>
     <color name="heart_infill_full">#BE1250</color>
     <color name="heart_infill_empty">#125359</color>
-
+-->
 </resources>

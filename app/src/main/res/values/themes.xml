@@ -10,19 +10,18 @@
 
 
     <item name="colorPrimary">@color/day_background</item>
-    <item name="colorPrimaryVariant">@color/grey</item>
-    <item name="colorOnPrimary">@color/day_lightGreen</item>
 
+    <item name="colorOnPrimary">@color/day_lightGreen</item>
+        <item name="colorOnSecondary">@color/day_darkGreen</item>
+        <!--
+        <item name="colorPrimaryVariant">@color/grey</item>
     <item name="colorSecondary">@color/blue</item>
     <item name="colorSecondaryVariant">@color/white</item>
-    <item name="colorOnSecondary">@color/day_darkGreen</item>
-
     <item name="colorSwitcherTop">@color/grey</item>
     <item name="colorSwitcherBottom">@color/greyLight</item>
-
     <item name="colorTextInputFont">@color/grey</item>
     <item name="colorTextInputBackground">@color/greyLight</item>
-
     <item name="colorButtonPlayerBackground">@color/black_0.25</item>
+    -->
 </style>
 </resources>
