@@ -60,7 +60,7 @@ class WordsMatchingAdapter(
         return when (word) {
             in selectedWords -> R.drawable.word_background_selected
             in errorWords -> R.drawable.word_background_error
-            in usedWords -> R.drawable.word_background_opaque
+            in usedWords -> R.drawable.word_background_used
             in correctWords -> R.drawable.word_background_correct
             else -> R.drawable.word_background_default
         }

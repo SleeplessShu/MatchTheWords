@@ -14,9 +14,9 @@
     <string name="end_game_phrase_win">VICTORY</string>
     <string name="end_game_phrase_loose">FAIL</string>
 
-    <string name="button_text_start_game">START_GAME</string>
+    <string name="button_text_start_game">New Game</string>
     <string name="button_text_new_game">NEW_GAME</string>
-    <string name="button_text_restart_round">RESTART</string>
+    <string name="button_text_restart_round">Restart</string>
 
 
     <!--

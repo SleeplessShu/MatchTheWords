@@ -3,6 +3,12 @@
     <color name="day_background">#F7F7EB</color>
     <color name="day_darkGreen">#1D2E27</color>
     <color name="day_lightGreen">#00AE6A</color>
+    <color name="item_selected">#FFF0CF</color>
+    <color name="item_wrong">#FF6558</color>
+    <color name="item_correct">#01B971</color>
+    <color name="item_default">#F7F7EB</color>
+    <color name="item_used">#C5C5C5</color>
+
 
 
     <color name="black">#1A1B22</color>
@@ -15,10 +21,6 @@
     <color name="greyLight">#E6E8EB</color>
 
 
-    <!--отладочные цвета-->
-    <color name="pink">#FF4886</color>
-    <color name="green">#009688</color>
-    <color name="magenta">#673AB7</color>
 
 
     <!--новые цвета-->
