@@ -80,7 +80,7 @@
     <style name="Stats_notions" parent="Stats">
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
-        <item name="android:layout_width">@dimen/zero</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
     </style>
@@ -93,13 +93,13 @@
 
     <style name="Stats_buttons_left" parent="Stats_buttons">
         <item name="android:layout_marginTop">@dimen/dim_08dp</item>
-        <item name="android:layout_marginEnd">@dimen/dim_12dp</item>
+        <item name="android:layout_marginEnd">@dimen/padding_small</item>
         <item name="android:src">@drawable/arrow_left</item>
     </style>
 
     <style name="Stats_buttons_right" parent="Stats_buttons">
         <item name="android:layout_marginTop">@dimen/dim_08dp</item>
-        <item name="android:layout_marginStart">@dimen/dim_12dp</item>
+        <item name="android:layout_marginStart">@dimen/padding_small</item>
         <item name="android:src">@drawable/arrow_right</item>
     </style>
 

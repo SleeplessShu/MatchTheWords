@@ -28,14 +28,14 @@
         android:id="@+id/bl_language1"
         style="@style/Stats_buttons_left"
         android:layout_marginTop="@dimen/dim_08dp"
-        android:layout_marginEnd="@dimen/dim_12dp"
+        android:layout_marginEnd="@dimen/padding_small"
         app:layout_constraintEnd_toStartOf="@id/tvFirstLanguage"
         app:layout_constraintTop_toTopOf="@id/tvFirstLanguage" />
 
     <ImageView
         android:id="@+id/br_language1"
         style="@style/Stats_buttons_right"
-        android:layout_marginStart="@dimen/dim_12dp"
+        android:layout_marginStart="@dimen/padding_small"
         android:layout_marginTop="@dimen/dim_08dp"
         app:layout_constraintStart_toEndOf="@id/tvFirstLanguage"
         app:layout_constraintTop_toTopOf="@id/tvFirstLanguage" />
