@@ -4,7 +4,8 @@ A vocabulary trainer for people who need to remember words — without stress,
 streaks, or guilt.
 
 ## Download
-
+[![GooglePlay](https://img.shields.io/badge/GooglePlay-Pimi-green)](https://play.google.com/store/apps/details?id=com.sleeplessdog.pimi)
+[![Apk](https://img.shields.io/badge/APK-Pimi-red)](https://github.com/SleeplessShu/PimiWords/blob/master/Pimi_1-012.apk)
 [![RuStore](https://img.shields.io/badge/RuStore-Pimi-blue)](https://console.rustore.ru/apps/2063706423)
 
 ## Features
