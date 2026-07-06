@@ -5,6 +5,7 @@ import com.sleeplessdog.pimi.database.global.GlobalDao
 import com.sleeplessdog.pimi.database.global.GlobalDatabase
 import com.sleeplessdog.pimi.database.user.UserDao
 import com.sleeplessdog.pimi.database.user.UserDatabase
+import com.sleeplessdog.pimi.database.user.UserStatsDao
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
@@ -101,5 +102,12 @@ class AppDatabaseProvider(
         if (userDb == null) {
             userDb = createUserDatabase()
         }
+    }
+
+    fun getUserStatsDao(): UserStatsDao {
+        if (userDb == null) {
+            userDb = UserDatabase.create(context)
+        }
+        return userDb!!.userStatsDao()
     }
 }

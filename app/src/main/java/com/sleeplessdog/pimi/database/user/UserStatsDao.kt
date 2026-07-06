@@ -4,11 +4,12 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserStatsDao {
     @Query("SELECT * FROM user_stats WHERE id = 1")
-    suspend fun get(): UserStatsEntity?
+    fun observe(): Flow<UserStatsEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun save(entity: UserStatsEntity)
@@ -21,4 +22,7 @@ interface UserStatsDao {
 
     @Query("UPDATE user_stats SET totalWordsLearned = totalWordsLearned + :count, weekWordsLearned = weekWordsLearned + :count WHERE id = 1")
     suspend fun addLearnedWords(count: Int)
+
+    @Query("SELECT * FROM user_stats WHERE id = 1")
+    suspend fun get(): UserStatsEntity?
 }

@@ -12,7 +12,6 @@ import com.sleeplessdog.pimi.gameSelect.LandingKeys
 import com.sleeplessdog.pimi.games.data.repository.AppPrefs
 import com.sleeplessdog.pimi.games.domain.models.WordsController
 import com.sleeplessdog.pimi.games.domain.usecases.GetSelectedGroupsUC
-import com.sleeplessdog.pimi.games.domain.usecases.GetWordPairsFromUserGroupUC
 import com.sleeplessdog.pimi.games.presentation.controller.LandingPagesController
 import com.sleeplessdog.pimi.games.presentation.interfaces.GameEvent
 import com.sleeplessdog.pimi.games.presentation.models.GameSettings
@@ -39,7 +38,6 @@ class GameViewModel(
     private val progressController: ProgressController,
     private val landingManager: LandingPagesController,
     private val getSelectedGroupsUC: GetSelectedGroupsUC,
-    private val getWordPairsFromUserGroupUC: GetWordPairsFromUserGroupUC,
     private val processGameResultUC: ProcessGameResultUC,
     private val appPrefs: AppPrefs,
 ) : ViewModel() {

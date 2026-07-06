@@ -7,11 +7,17 @@ import com.sleeplessdog.pimi.database.user.UserAwardEntity
 import com.sleeplessdog.pimi.database.user.UserDatabase
 import com.sleeplessdog.pimi.database.user.UserStatsEntity
 import com.sleeplessdog.pimi.database.user.WordProgressEntity
+import com.sleeplessdog.pimi.dictionary.authorisation.DatabaseInstance
 import com.sleeplessdog.pimi.games.data.repository.AppPrefs
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.onStart
 
 class StatsRepository(
     private val databaseProvider: AppDatabaseProvider,
     private val appPrefs: AppPrefs,
+    private val deployCompleted: SharedFlow<DatabaseInstance>,
 ) {
     private suspend fun userStatsDao() = getUserDbSafe().userStatsDao()
 
@@ -22,6 +28,14 @@ class StatsRepository(
     private suspend fun userAwardDao() = getUserDbSafe().userAwardDao()
 
     private suspend fun awardProgressDao() = getUserDbSafe().awardProgressDao()
+
+    fun observeStats(): Flow<UserStatsEntity?> {
+        return deployCompleted
+            .onStart { emit(DatabaseInstance.USER) }
+            .flatMapLatest {
+                databaseProvider.getUserStatsDao().observe()
+            }
+    }
 
     suspend fun getStats(): UserStatsEntity? = userStatsDao().get()
 
