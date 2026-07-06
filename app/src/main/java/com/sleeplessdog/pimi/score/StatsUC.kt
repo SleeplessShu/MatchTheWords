@@ -1,5 +1,6 @@
 package com.sleeplessdog.pimi.score
 
+import android.util.Log
 import com.sleeplessdog.pimi.database.AppDatabaseProvider
 import com.sleeplessdog.pimi.database.user.UserStatsEntity
 import com.sleeplessdog.pimi.database.user.WordProgressDao
@@ -8,6 +9,7 @@ import com.sleeplessdog.pimi.score.domain.models.AwardsCatalog
 import com.sleeplessdog.pimi.score.presentation.models.ScoreUiState
 import com.sleeplessdog.pimi.score.presentation.models.StatItem
 import com.sleeplessdog.pimi.settings.LanguageLevel
+import kotlinx.coroutines.flow.Flow
 import java.time.DayOfWeek
 import java.time.LocalDate
 
@@ -36,6 +38,14 @@ class ProcessGameResultUC(
     }
 }
 
+class ObserveStatsUC(
+    private val statsRepository: StatsRepository,
+) {
+    operator fun invoke(): Flow<UserStatsEntity?> {
+        return statsRepository.observeStats()
+    }
+}
+
 class GetScoreUiStateUC(
     private val databaseProvider: AppDatabaseProvider,
     private val statsRepository: StatsRepository,
@@ -52,7 +62,10 @@ class GetScoreUiStateUC(
         val level = calculateLevel()
         val currentStats = refreshWeeklyStatsIfNeeded(stats)
         val learnedCategories = countLearnedCategories()
-
+        Log.d(
+            "STATS_DEBUG",
+            "weekWordsLearned=${currentStats.weekWordsLearned} totalWordsLearned=${currentStats.totalWordsLearned} weekGamesPlayed=${currentStats.weekGamesPlayed}"
+        )
         return ScoreUiState(
             level = level,
             awards = awards,
@@ -113,6 +126,16 @@ class GetScoreUiStateUC(
         val weekStart = LocalDate.now()
             .with(DayOfWeek.MONDAY)
             .toEpochDay()
+        Log.d(
+            "STATS_DEBUG",
+            "weekStartTimestamp=${stats.weekStartTimestamp} weekStart=$weekStart needReset=${stats.weekStartTimestamp < weekStart}"
+        )
+
+        if (stats.weekStartTimestamp == 0L) {
+            val initialized = stats.copy(weekStartTimestamp = weekStart)
+            statsRepository.saveStats(initialized)
+            return initialized
+        }
 
         return if (stats.weekStartTimestamp < weekStart) {
             val reset = stats.copy(

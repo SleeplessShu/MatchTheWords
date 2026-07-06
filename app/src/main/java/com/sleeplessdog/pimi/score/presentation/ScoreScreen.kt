@@ -95,7 +95,6 @@ fun ScoreScreen(
             Column(
                 modifier = Modifier.padding(horizontal = 20.dp)
             ) {
-                // хедер такой же высоты как в словаре
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

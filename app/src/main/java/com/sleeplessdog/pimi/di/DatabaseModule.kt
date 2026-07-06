@@ -32,6 +32,7 @@ import com.sleeplessdog.pimi.games.domain.usecases.ObserveUserGroupsUC
 import com.sleeplessdog.pimi.games.domain.usecases.ObserveWordsInUserGroupUC
 import com.sleeplessdog.pimi.games.domain.usecases.RenameUserGroupUC
 import com.sleeplessdog.pimi.score.GetScoreUiStateUC
+import com.sleeplessdog.pimi.score.ObserveStatsUC
 import com.sleeplessdog.pimi.score.ProcessGameResultUC
 import com.sleeplessdog.pimi.score.StatsRepository
 import com.sleeplessdog.pimi.settings.ObserveAllGroupsForSettingsUC
@@ -78,6 +79,7 @@ val databaseModule = module {
         StatsRepository(
             databaseProvider = get(),
             appPrefs = get(),
+            deployCompleted = get<DatabaseSyncController>().deployCompleted,
         )
     }
 
@@ -109,6 +111,9 @@ val databaseModule = module {
             get()
         )
     }
+
+    single { ObserveStatsUC(get()) }
+
     single { CreateUserGroupUC(get()) }
     single { GetSelectedGroupsUC(get()) }
     single { GetWordsCountForGroupUC(get()) }

@@ -45,20 +45,19 @@ val presentationModule = module {
 
     viewModel {
         GameViewModel(
-
             wordsController = get(),
             progressController = get(),
             landingManager = get(),
             getSelectedGroupsUC = get(),
             appPrefs = get(),
-            getWordPairsFromUserGroupUC = get(),
             processGameResultUC = get(),
         )
     }
 
     viewModel {
         ScoreViewModel(
-            getScoreUiState = get()
+            getScoreUiState = get(),
+            observeStats = get()
         )
     }
     viewModel {
