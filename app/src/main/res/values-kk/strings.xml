@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pimi</string>
+    <string name="title_application_name" translatable="false">PimiMatch</string>
+
+    <string name="state_title_game">Ойын</string>
+    <string name="state_title_settings">Параметрлер</string>
+    <string name="state_title_loading">Жүктелуде…</string>
+    <string name="state_title_result">Ұпайлар</string>
+    <string name="state_title_match_settings">Ойын параметрлері</string>
+
+    <string name="empty">     </string>
+
+    <string name="landing_start_button">Бастайық!</string>
+    <string name="landing_start_salut" translatable="false">HOLA!\nSALUT!\nBAREV!</string>
+    <string name="landing_accept">Түсінікті!</string>
+    <string name="landing_language_select">Үйренетін тілді\nтаңда</string>
+    <string name="landing_mtw_header">Сөздерден\nжұп құра</string>
+    <string name="landing_tof_header">Дұрыс па\nекенін анықта</string>
+    <string name="landing_oof_header">Бір нұсқаны\nтаңда</string>
+    <string name="landing_wtw_header">Сөздің\nаударmasын жаз</string>
+    <string name="landing_mtw_text">Әрбір дұрыс жұп үшін\nұпай ал</string>
+    <string name="landing_tof_text">Әрбір сөз үшін ұпай ал</string>
+    <string name="landing_oof_text">Әрбір сөз үшін ұпай ал</string>
+    <string name="landing_wtw_text">Әрбір сөз үшін ұпай ал</string>
+    <string name="landing_start_game">Бастау</string>
+    <string name="landing_options_game">Ойынды баптау</string>
+
+    <string name="end_game_phrase_win">Жеңіс!</string>
+    <string name="end_game_phrase_loose">Сәтсіздік!</string>
+    <string name="score_text" translatable="false">%d</string>
+    <string name="report_sent">Хабарлама жіберілді</string>
+    <string name="words_saved">Сөздер сөздікке сақталды</string>
+    <string name="button_new_game">Басты мәзір</string>
+    <string name="button_to_settings">Параметрлер</string>
+    <string name="button_restart_round">Қайталау</string>
+    <string name="eg_errors">қате</string>
+    <string name="eg_points">ұпай</string>
+    <string name="eg_words">сөз</string>
+    <string name="eg_congrats">Уау! Тамаша ойын</string>
+    <string name="eg_sorrow">Ой! Келесі жолы\nжақсырақ шығады</string>
+
+    <string name="select_game">Ойынды таңда</string>
+    <string name="MTW">Жұп\nтап</string>
+    <string name="ROW">Иә/Жоқ</string>
+    <string name="MC">Дұрысын\nтаңда</string>
+    <string name="WTW">Сөзді\nқұра</string>
+    <string name="selected_groups_label">Ойынға арналған сөз топтары:</string>
+    <string name="game_group_label">Ойынға арналған топ:</string>
+    <string name="game_no_groups_selected">Топтар таңдалмаған — параметрлерге өт</string>
+    <string name="clear_forced_group">Таңдалған топты тазалау</string>
+
+    <string name="games">Ойындар</string>
+    <string name="score">Прогресс</string>
+    <string name="settings">Параметрлер</string>
+    <string name="words">Сөздік</string>
+
+    <string name="tof_yes">Иә</string>
+    <string name="tof_no">Жоқ</string>
+    <string name="tof_correct">Дұрыс</string>
+    <string name="tof_wrong">Дұрыс емес</string>
+
+    <string name="ingame_origin">Түпнұсқа</string>
+    <string name="ingame_translate">Аударma</string>
+    <string name="ingame_dots" translatable="false">...</string>
+
+    <string name="exit_game_title">Шынымен ойыннан\nшыққыңыз келе ме?</string>
+    <string name="exit_game_subtitle">Ойын прогресі сақталмайды</string>
+    <string name="action_stay">Қалу</string>
+    <string name="action_exit">Ойыннан шығу</string>
+
+    <string name="settings_menu">Параметрлер</string>
+    <string name="settings_minimum_one">Кемінде бірін таңдау керек</string>
+    <string name="int_language">Интерфейс тілі</string>
+    <string name="std_language">Үйренетін тіл</string>
+    <string name="std_groups">Үйренетін топтар</string>
+    <string name="show_all">Барлығын көрсету</string>
+    <string name="lang_level">Тіл деңгейі</string>
+    <string name="level_a1" translatable="false">A1</string>
+    <string name="level_a2" translatable="false">A2</string>
+    <string name="level_b1" translatable="false">B1</string>
+    <string name="level_b2" translatable="false">B2</string>
+    <string name="level_c1" translatable="false">C1</string>
+    <string name="level_c2" translatable="false">C2</string>
+    <string name="game_difficult">Ойын қиындығы</string>
+
+    <string name="difficulty_easy">Оңай</string>
+    <string name="difficulty_medium">Орташа</string>
+    <string name="difficulty_hard">Қиын</string>
+    <string name="difficulty_expert">Эксперт</string>
+    <string name="difficulty_cart">Карточка</string>
+
+    <string name="difficulty_easy_words">6 сөз</string>
+    <string name="difficulty_medium_words">12 сөз</string>
+    <string name="difficulty_hard_words">24 сөз</string>
+    <string name="difficulty_expert_words">32 сөз</string>
+
+    <string name="all_groups">Сөз топтары</string>
+    <string name="user_groups">Менің топтарым:</string>
+    <string name="global_groups">Стандартты топтар</string>
+    <string name="cancel">Бас тарту</string>
+    <string name="save">Сақтау</string>
+
+    <string name="group_animals">Жануарлар</string>
+    <string name="group_food">Тамақ</string>
+    <string name="group_family">Отбасы</string>
+    <string name="group_clothes">Киім</string>
+    <string name="group_places">Орындар</string>
+    <string name="group_time">Уақыт</string>
+    <string name="group_transport">Көлік</string>
+    <string name="group_work">Жұмыс</string>
+    <string name="group_house">Үй</string>
+    <string name="group_education">Білім</string>
+    <string name="group_nature">Табиғат</string>
+    <string name="group_emotions">Эмоциялар</string>
+    <string name="group_colors">Түстер</string>
+    <string name="group_numbers">Сандар</string>
+    <string name="group_actions">Әрекеттер</string>
+    <string name="group_objects">Заттар</string>
+    <string name="group_abstract">Абстрактілі ұғымдар</string>
+    <string name="group_entertainment">Ойын-сауық</string>
+    <string name="group_communication">Қарым-қатынас</string>
+    <string name="group_travel">Саяхат</string>
+    <string name="group_health">Денсаулық</string>
+    <string name="group_adjectives">Сын есімдер</string>
+    <string name="group_adverbs">Үстеулер</string>
+    <string name="group_pronouns">Есімдіктер</string>
+    <string name="group_miscellaneous">Түрлі-түсті</string>
+    <string name="group_body">Дене мүшелері</string>
+    <string name="group_programming">Бағдарламалау</string>
+    <string name="group_design">Дизайн</string>
+    <string name="group_random">Кездейсоқ</string>
+    <string name="group_unknown">Топ белгісіз</string>
+    <string name="group_saved">Сақталған сөздер</string>
+
+    <string name="report_words">Қате қайда?</string>
+    <string name="add_to_dictionary">Нені сақтаймыз?</string>
+    <string name="report">Хабарлау</string>
+    <string name="add_all">Барлығын қосу</string>
+    <string name="done">Дайын!</string>
+    <string name="btn_clear_word">Сөзді жою</string>
+    <string name="btn_clear_letter">Әріпті жою</string>
+    <string name="btn_skip">Өткізіп жіберу</string>
+    <string name="btn_check">Тексеру</string>
+    <string name="btn_continue">Жалғастырайық</string>
+
+    <string name="score_in_game">Есеп</string>
+    <string name="exit_button">Шығу түймесі</string>
+
+    <string name="h1_my_level">Менің деңгейім:</string>
+    <string name="h2_statistic">Статистика</string>
+    <string name="tab_week">Апта</string>
+    <string name="tab_all_time">Барлық уақыт</string>
+    <string name="h2_awards">Жүлделер</string>
+    <string name="awards_header">барлығы</string>
+    <string name="stats_words_learned">Сөздер өтілді</string>
+    <string name="stats_categories_learned">Санаттар үйренілді</string>
+    <string name="stats_games_played">Ойындар ойналды</string>
+    <string name="stats_scores">Ұпайлар жиналды</string>
+
+    <string name="my_awards">Менің жүлделерім</string>
+    <string name="award_mammoth_hunter_title">Мамонт аңшысы</string>
+    <string name="award_responsible_citizen_title">Жауапты азамат</string>
+    <string name="award_perfectionist_title">Перфекционист</string>
+    <string name="award_almost_title">Дерлік</string>
+    <string name="award_now_for_sure_title">Енді нақты</string>
+    <string name="award_almost_expert_title">Дерлік эксперт</string>
+    <string name="award_knowledge_collector_title">Білім жинаушы</string>
+    <string name="award_for_a_rainy_day_title">Қара күнге</string>
+    <string name="award_maybe_useful_title">Пайда болар</string>
+    <string name="award_i_live_here_title">Мен мұнда тұрамын</string>
+    <string name="award_little_but_regular_title">Аз, бірақ үнемі</string>
+    <string name="award_lazy_panda_title">Жалқау панда</string>
+    <string name="award_i_tried_title">Тырыстым</string>
+    <string name="award_word_by_word_title">Сөзден сөзге</string>
+    <string name="award_honestly_title">Мінсіз емес, бірақ адал</string>
+    <string name="award_slow_but_pretty_title">Баяу, бірақ әдемі</string>
+    <string name="award_self_improvement_title">Өзін-өзі жетілдіру</string>
+    <string name="award_i_understood_title">Түсіндім, шынымен</string>
+    <string name="award_learned_from_mistakes_title">Бұрынғы тәжірибені ескердім</string>
+    <string name="award_figured_out_title">Түсіндім</string>
+
+    <string name="award_mammoth_hunter_desc">Барлық сүтқоректілерді үйренді</string>
+    <string name="award_responsible_citizen_desc">Қатені 10 рет хабарлады</string>
+    <string name="award_perfectionist_desc">Санатты 100%-ға жапты</string>
+    <string name="award_almost_desc">Санатты 99%-ға жапты</string>
+    <string name="award_now_for_sure_desc">Санатты 95–99%-дан 100%-ға жеткізді</string>
+    <string name="award_almost_expert_desc">5 санатты кемінде 90%-ға жапты</string>
+    <string name="award_knowledge_collector_desc">Санаттағы барлық сөздер ашылды</string>
+    <string name="award_for_a_rainy_day_desc">50 сөзді таңдаулыларға қосты</string>
+    <string name="award_maybe_useful_desc">Сөзді таңдаулыларға қосты және қайта оралмады</string>
+    <string name="award_i_live_here_desc">7 күн қатарынан қолданбаға кірді</string>
+    <string name="award_little_but_regular_desc">3 күн қатарынан 5 минуттан аз оқыды</string>
+    <string name="award_lazy_panda_desc">3 сөзден тұратын сабақ өтті</string>
+    <string name="award_i_tried_desc">Сабақ өтіп, бірден шықты</string>
+    <string name="award_word_by_word_desc">100 сөз үйренді</string>
+    <string name="award_honestly_desc">Сөзді екінші әрекетте үйренді</string>
+    <string name="award_slow_but_pretty_desc">Дұрыс жауап берді, бірақ әдеттегіден ұзағырақ</string>
+    <string name="award_self_improvement_desc">Бұрын қате 10 сөзді түзетті</string>
+    <string name="award_i_understood_desc">3 қатеден кейін дұрыс жауап берді</string>
+    <string name="award_learned_from_mistakes_desc">Сөзді түзеткеннен кейін қате жібермеді</string>
+    <string name="award_figured_out_desc">Бір санаттағы барлық қателерді түзетті</string>
+
+    <string name="error_auth_declined">Авторизация қатесі </string>
+    <string name="dictionary">Сөздік</string>
+
+    <string name="auth_dialog_title">Синхрондау</string>
+    <string name="auth_dialog_message">Прогресс пен сөздікті бұлтта сақтау үшін Google арқылы кіріңіз</string>
+    <string name="auth_dialog_confirm">Кіру</string>
+    <string name="auth_dialog_decline">Қазір емес</string>
+    <string name="dictionary_my_groups">Менікі</string>
+    <string name="dictionary_default_groups">Стандартты</string>
+
+    <string name="sync_overlay_title">Синхрондау</string>
+    <string name="sync_label_auth">Авторизация</string>
+    <string name="sync_label_global_db">Жаһандық база</string>
+    <string name="sync_label_user_db">Жеке база</string>
+    <string name="sync_refresh">Жаңарту</string>
+    <string name="create_group">Топ құру</string>
+    <string name="new_group">Жаңа топ</string>
+    <string name="new_word">Жаңа сөз</string>
+    <string name="edit_word">Сөзді өңдеу</string>
+
+    <string name="enter_group_name">Топ атауы</string>
+    <string name="enter_word_origin">Сөз</string>
+    <string name="enter_word_translate">Аударма</string>
+    <string name="words_edit">Өңдеу</string>
+    <string name="words_move">Жылжыту</string>
+    <string name="select_group">Топқа</string>
+
+    <string name="added_words">Қосылған сөздер</string>
+    <string name="save_words">«Сақталған сөздерге»</string>
+    <string name="button_cancel">Бас тарту</string>
+    <string name="button_cancel_v2">Бас тарту</string>
+    <string name="button_yes_v2">Иә</string>
+    <string name="button_save">Сақтау</string>
+    <string name="button_play">Ойнау</string>
+    <string name="button_rename">Атауын өзгерту</string>
+    <string name="button_move">Жылжыту</string>
+    <string name="button_rename_v2">Жаңа атау</string>
+    <string name="rename_group_confirm">
+    «%1$s» тобына жаңа атау енгізіңіз.
+</string>
+    <string name="button_delete">Жою</string>
+    <string name="dialog_delete">Жою</string>
+    <string name="delete_group_confirm">
+    «%1$s» тобын және оның барлық мазмұнын жойғыңыз келе ме?
+</string>
+    <string name="delete_word_confirm">
+    «%1$s» сөзін жойғыңыз келе ме?
+</string>
+    <string name="add_word">Сөз қосу</string>
+    <string name="words_count_title">ТЕСТОВАЯ ЗАПИСЬ</string>
+
+    <plurals name="words_count">
+        <item quantity="one">%d сөз</item>
+        <item quantity="other">%d сөз</item>
+    </plurals>
+
+    <string name="language_english">Ағылшын</string>
+    <string name="language_spanish">Испан</string>
+    <string name="language_russian">Орыс</string>
+    <string name="language_french">Француз</string>
+    <string name="language_german">Неміс</string>
+    <string name="language_armenian">Армян</string>
+    <string name="language_serbian">Серб</string>
+    <string name="language_georgian">Грузин</string>
+    <string name="language_kazakh">Қазақ</string>
+
+    <string name="premium_dialog_title">Премиум мүмкіндік</string>
+    <string name="premium_dialog_message">3-тен астам топ құру премиум нұсқада қол жетімді.</string>
+    <string name="premium_dialog_message_groups">10-нан астам жазба құру премиум нұсқада қол жетімді.</string>
+    <string name="premium_dialog_confirm">Толығырақ білу</string>
+    <string name="premium_dialog_decline">Қазір емес</string>
+
+    <string name="word_packs_title">Дайын сөз жинақтары</string>
+    <string name="word_packs_empty">Бұл тіл жұбы үшін жинақтар табылмады</string>
+    <string name="word_pack_install">Орнату</string>
+    <string name="word_pack_installed">«%s» сөздікке қосылды</string>
+
+    <string name="update_ready_message">Жаңарту орнатуға дайын</string>
+    <string name="update_restart_button">Қайта іске қосу</string>
+
+    <string name="arm_script_hayeren">Հայերեն</string>
+    <string name="arm_script_latin">Armenian</string>
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
+    <string name="kk_script_cyrillic">Қазақша</string>
+    <string name="kk_script_latin">Kazakh</string>
+
+    <string name="saved_words_group_title">Сақталған сөздер</string>
+</resources>

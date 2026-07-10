@@ -1,0 +1,317 @@
+<resources>
+    <!-- TITLES -->
+    <string name="title_application_name" translatable="false">PimiMatch</string>
+    <string name="app_name">Pimi</string>
+
+    <string name="state_title_game">თამაში</string>
+    <string name="state_title_settings">პარამეტრები</string>
+    <string name="state_title_loading">იტვირთება…</string>
+    <string name="state_title_result">ქულები</string>
+    <string name="state_title_match_settings">მატჩის პარამეტრები</string>
+
+    <string name="empty">     </string>
+
+    <!-- LANDING PAGES -->
+    <string name="landing_start_button">დავიწყოთ!</string>
+    <string name="landing_start_salut" translatable="false">HOLA!\nSALUT!\nBAREV!</string>
+    <string name="landing_accept">გასაგებია!</string>
+
+    <string name="landing_language_select">აირჩიე ენა\nსასწავლად</string>
+
+    <string name="landing_mtw_header">შეადგინე\nსიტყვების წყვილი</string>
+    <string name="landing_tof_header">განსაზღვრე\nსწორია თუ არა</string>
+    <string name="landing_oof_header">აირჩიე\nერთი ვარიანტი</string>
+    <string name="landing_wtw_header">დაწერე\nსიტყვის თარგმანი</string>
+    <string name="landing_mtw_text">მიიღე ქულები თითოეული\nსწორი წყვილისთვის</string>
+    <string name="landing_tof_text">მიიღე ქულები თითოეული სიტყვისთვის</string>
+    <string name="landing_oof_text">მიიღე ქულები თითოეული სიტყვისთვის</string>
+    <string name="landing_wtw_text">მიიღე ქულები თითოეული სიტყვისთვის</string>
+
+    <string name="landing_start_game">დაწყება</string>
+    <string name="landing_options_game">თამაშის კონფიგურაცია</string>
+
+    <!-- endgame fragment -->
+    <string name="end_game_phrase_win">გამარჯვება!</string>
+    <string name="end_game_phrase_loose">წარუმატებლობა!</string>
+    <string name="score_text" translatable="false">%d</string>
+    <string name="report_sent">შეტყობინება გაიგზავნა</string>
+    <string name="words_saved">სიტყვები შენახულია ლექსიკონში</string>
+    <string name="button_new_game">მთავარი მენიუ</string>
+    <string name="button_to_settings">პარამეტრები</string>
+    <string name="button_restart_round">გამეორება</string>
+    <string name="eg_errors">შეცდომა</string>
+    <string name="eg_points">ქულა</string>
+    <string name="eg_words">სიტყვა</string>
+    <string name="eg_congrats">ვაუ! განსაცვიფრებელი თამაში</string>
+    <string name="eg_sorrow">ოჰ! შემდეგ ჯერზე\nუკეთ გამოგივა</string>
+
+    <!--games select fragment-->
+    <string name="select_game">აირჩიე თამაში</string>
+    <string name="MTW">იპოვე\nწყვილი</string>
+    <string name="ROW">დიახ/არა</string>
+    <string name="MC">აირჩიე\nსწორი</string>
+    <string name="WTW">შეადგინე\nსიტყვა</string>
+    <string name="selected_groups_label">სიტყვების ჯგუფები თამაშისთვის:</string>
+    <string name="game_group_label">ჯგუფი თამაშისთვის:</string>
+    <string name="game_no_groups_selected">ჯგუფები არ არის არჩეული — გადადი პარამეტრებში</string>
+    <string name="clear_forced_group">არჩეული ჯგუფის გასუფთავება</string>
+
+    <!--bottom menu-->
+    <string name="games">თამაშები</string>
+    <string name="score">პროგრესი</string>
+    <string name="settings">პარამეტრები</string>
+    <string name="words">ლექსიკონი</string>
+
+    <!--TOF-->
+    <string name="tof_yes">დიახ</string>
+    <string name="tof_no">არა</string>
+    <string name="tof_correct">სწორია</string>
+    <string name="tof_wrong">არასწორია</string>
+
+    <string name="ingame_origin">ორიგინალი</string>
+    <string name="ingame_translate">თარგმანი</string>
+    <string name="ingame_dots" translatable="false">...</string>
+
+
+    <!--Exitgame Bottomsheet-->
+    <string name="exit_game_title">ნამდვილად გინდა\nთამაშიდან გასვლა?</string>
+    <string name="exit_game_subtitle">თამაშის პროგრესი არ შეინახება</string>
+    <string name="action_stay">დარჩენა</string>
+    <string name="action_exit">თამაშიდან გასვლა</string>
+
+    <!--settings menu-->
+
+    <string name="settings_menu">პარამეტრები</string>
+    <string name="settings_minimum_one">უნდა აირჩიოს სულ მცირე ერთი</string>
+    <string name="int_language">ინტერფეისის ენა</string>
+    <string name="std_language">სასწავლო ენა</string>
+    <string name="std_groups">სასწავლო ჯგუფები</string>
+    <string name="show_all">ყველას ჩვენება</string>
+    <string name="lang_level">ენის დონე</string>
+    <string name="level_a1" translatable="false">A1</string>
+    <string name="level_a2" translatable="false">A2</string>
+    <string name="level_b1" translatable="false">B1</string>
+    <string name="level_b2" translatable="false">B2</string>
+    <string name="level_c1" translatable="false">C1</string>
+    <string name="level_c2" translatable="false">C2</string>
+    <string name="game_difficult">თამაშის სირთულე</string>
+
+    <!-- названия уровней сложности игры -->
+    <string name="difficulty_easy">მარტივი</string>
+    <string name="difficulty_medium">საშუალო</string>
+    <string name="difficulty_hard">რთული</string>
+    <string name="difficulty_expert">ექსპერტი</string>
+    <string name="difficulty_cart">ბარათი</string>
+
+    <!-- количество слов -->
+    <string name="difficulty_easy_words">6 სიტყვა</string>
+    <string name="difficulty_medium_words">12 სიტყვა</string>
+    <string name="difficulty_hard_words">24 სიტყვა</string>
+    <string name="difficulty_expert_words">32 სიტყვა</string>
+
+    <!--группы слов боттомшит-->
+    <string name="all_groups">სიტყვების ჯგუფები</string>
+    <string name="user_groups">ჩემი ჯგუფები:</string>
+    <string name="global_groups">სტანდარტული ჯგუფები</string>
+    <string name="cancel">გაუქმება</string>
+    <string name="save">შენახვა</string>
+
+    <string name="group_animals">ცხოველები</string>
+    <string name="group_food">საკვები</string>
+    <string name="group_family">ოჯახი</string>
+    <string name="group_clothes">ტანსაცმელი</string>
+    <string name="group_places">ადგილები</string>
+    <string name="group_time">დრო</string>
+    <string name="group_transport">ტრანსპორტი</string>
+    <string name="group_work">სამსახური</string>
+    <string name="group_house">სახლი</string>
+    <string name="group_education">განათლება</string>
+    <string name="group_nature">ბუნება</string>
+    <string name="group_emotions">ემოციები</string>
+    <string name="group_colors">ფერები</string>
+    <string name="group_numbers">რიცხვები</string>
+    <string name="group_actions">მოქმედებები</string>
+    <string name="group_objects">საგნები</string>
+    <string name="group_abstract">აბსტრაქტული ცნებები</string>
+    <string name="group_entertainment">გართობა</string>
+    <string name="group_communication">კომუნიკაცია</string>
+    <string name="group_travel">მოგზაურობა</string>
+    <string name="group_health">ჯანმრთელობა</string>
+    <string name="group_adjectives">ზედსართავები</string>
+    <string name="group_adverbs">ზმნიზედები</string>
+    <string name="group_pronouns">ნაცვალსახელები</string>
+    <string name="group_miscellaneous">სხვადასხვა</string>
+    <string name="group_body">სხეულის ნაწილები</string>
+    <string name="group_programming">პროგრამირება</string>
+    <string name="group_design">დიზაინი</string>
+    <string name="group_random">შემთხვევითი</string>
+    <string name="group_unknown">ჯგუფი უცნობია</string>
+    <string name="group_saved">შენახული სიტყვები</string>
+
+    <!--Репорт/добавление слов-->
+    <string name="report_words">სად არის შეცდომა?</string>
+    <string name="add_to_dictionary">რას შევინახავთ?</string>
+    <string name="report">შეტყობინება</string>
+    <string name="add_all">ყველას დამატება</string>
+    <string name="done">მზადაა!</string>
+    <string name="btn_clear_word">სიტყვის წაშლა</string>
+    <string name="btn_clear_letter">ასოს წაშლა</string>
+    <string name="btn_skip">გამოტოვება</string>
+    <string name="btn_check">შემოწმება</string>
+    <string name="btn_continue">გავაგრძელოთ</string>
+
+    <!--GameFragment-->
+    <string name="score_in_game">ანგარიში</string>
+
+    <!--описание контента-->
+    <string name="exit_button">გასვლის ღილაკი</string>
+
+    <!--ScoreScreen-->
+    <string name="h1_my_level">ჩემი დონე:</string>
+    <string name="h2_statistic">სტატისტიკა</string>
+    <string name="tab_week">კვირა</string>
+    <string name="tab_all_time">ყველა დრო</string>
+    <string name="h2_awards">ჯილდოები</string>
+    <string name="awards_header">ყველა</string>
+    <string name="stats_words_learned">სიტყვები გავლილია</string>
+    <string name="stats_categories_learned">კატეგორიები ნასწავლია</string>
+    <string name="stats_games_played">თამაშები ჩატარებულია</string>
+    <string name="stats_scores">ქულები დაგროვებულია</string>
+
+    <!--AwardsScreen-->
+    <string name="my_awards">ჩემი ჯილდოები</string>
+    <!-- Awards titles -->
+    <string name="award_mammoth_hunter_title">მამონტის მონადირე</string>
+    <string name="award_responsible_citizen_title">პასუხისმგებელი მოქალაქე</string>
+    <string name="award_perfectionist_title">პერფექციონისტი</string>
+    <string name="award_almost_title">თითქმის</string>
+    <string name="award_now_for_sure_title">ახლა კი ნამდვილად</string>
+    <string name="award_almost_expert_title">თითქმის ექსპერტი</string>
+    <string name="award_knowledge_collector_title">ცოდნის კოლექციონერი</string>
+    <string name="award_for_a_rainy_day_title">შავი დღისთვის</string>
+    <string name="award_maybe_useful_title">შეიძლება გამოდგეს</string>
+    <string name="award_i_live_here_title">მე აქ ვცხოვრობ</string>
+    <string name="award_little_but_regular_title">ცოტა, მაგრამ რეგულარულად</string>
+    <string name="award_lazy_panda_title">ზარმაცი პანდა</string>
+    <string name="award_i_tried_title">ვცადე</string>
+    <string name="award_word_by_word_title">სიტყვა სიტყვაზე</string>
+    <string name="award_honestly_title">არა იდეალურად, მაგრამ გულწრფელად</string>
+    <string name="award_slow_but_pretty_title">ნელა, მაგრამ ლამაზად</string>
+    <string name="award_self_improvement_title">თვითგანვითარება</string>
+    <string name="award_i_understood_title">გავიგე, პატიოსნად</string>
+    <string name="award_learned_from_mistakes_title">გამოვიტანე გაკვეთილი</string>
+    <string name="award_figured_out_title">გავარკვიე</string>
+
+    <!-- Awards descriptions -->
+    <string name="award_mammoth_hunter_desc">ყველა ძუძუმწოვარი ისწავლა</string>
+    <string name="award_responsible_citizen_desc">შეცდომა 10-ჯერ შეატყობინა</string>
+    <string name="award_perfectionist_desc">კატეგორია 100%-ით დაიხურა</string>
+    <string name="award_almost_desc">კატეგორია 99%-ით დაიხურა</string>
+    <string name="award_now_for_sure_desc">კატეგორია 95–99%-დან 100%-მდე მიიყვანა</string>
+    <string name="award_almost_expert_desc">5 კატეგორია მინიმუმ 90%-ით დაიხურა</string>
+    <string name="award_knowledge_collector_desc">კატეგორიის ყველა სიტყვა გახსნილია</string>
+    <string name="award_for_a_rainy_day_desc">50 სიტყვა ფავორიტებში დაემატა</string>
+    <string name="award_maybe_useful_desc">სიტყვა ფავორიტებში დაემატა და არასოდეს დაბრუნდა</string>
+    <string name="award_i_live_here_desc">7 დღე ზედიზედ აპლიკაციაში შევიდა</string>
+    <string name="award_little_but_regular_desc">3 დღე ზედიზედ 5 წუთზე ნაკლებს სწავლობდა</string>
+    <string name="award_lazy_panda_desc">3 სიტყვიანი გაკვეთილი გაიარა</string>
+    <string name="award_i_tried_desc">გაკვეთილი გაიარა და მაშინვე გამოვიდა</string>
+    <string name="award_word_by_word_desc">100 სიტყვა ისწავლა</string>
+    <string name="award_honestly_desc">სიტყვა მეორე მცდელობაში ისწავლა</string>
+    <string name="award_slow_but_pretty_desc">სწორად პასუხობდა, მაგრამ ჩვეულებრივზე დიდხანს</string>
+    <string name="award_self_improvement_desc">10 ადრე შეცდომიანი სიტყვა გასწორდა</string>
+    <string name="award_i_understood_desc">3 შეცდომის შემდეგ სწორად უპასუხა</string>
+    <string name="award_learned_from_mistakes_desc">სიტყვის გასწორების შემდეგ მეტი შეცდომა არ დაუშვა</string>
+    <string name="award_figured_out_desc">ერთ კატეგორიაში ყველა შეცდომა გასწორდა</string>
+
+    <!--toast-->
+    <string name="error_auth_declined">ავტორიზაციის შეცდომა </string>
+    <string name="dictionary">ლექსიკონი</string>
+
+    <!--dictionary-->
+    <string name="auth_dialog_title">სინქრონიზაცია</string>
+    <string name="auth_dialog_message">შედით Google-ით პროგრესისა და ლექსიკონის ღრუბელში შესანახად</string>
+    <string name="auth_dialog_confirm">შესვლა</string>
+    <string name="auth_dialog_decline">არა ახლა</string>
+    <string name="dictionary_my_groups">ჩემი</string>
+    <string name="dictionary_default_groups">სტანდარტული</string>
+
+    <string name="sync_overlay_title">სინქრონიზაცია</string>
+    <string name="sync_label_auth">ავტორიზაცია</string>
+    <string name="sync_label_global_db">გლობალური ბაზა</string>
+    <string name="sync_label_user_db">პირადი ბაზა</string>
+    <string name="sync_refresh">განახლება</string>
+    <string name="create_group">ჯგუფის შექმნა</string>
+    <string name="new_group">ახალი ჯგუფი</string>
+    <string name="new_word">ახალი სიტყვა</string>
+    <string name="edit_word">სიტყვის რედაქტირება</string>
+
+    <string name="enter_group_name">ჯგუფის სახელი</string>
+    <string name="enter_word_origin">სიტყვა</string>
+    <string name="enter_word_translate">თარგმანი</string>
+    <string name="words_edit">რედაქტირება</string>
+    <string name="words_move">გადატანა</string>
+    <string name="select_group">ჯგუფში</string>
+
+
+    <string name="added_words">დამატებული სიტყვები</string>
+    <string name="save_words">„შენახულ სიტყვებში"</string>
+    <string name="button_cancel">გაუქმება</string>
+    <string name="button_cancel_v2">გაუქმება</string>
+    <string name="button_yes_v2">დიახ</string>
+    <string name="button_save">შენახვა</string>
+    <string name="button_play">თამაში</string>
+    <string name="button_rename">გადარქმევა</string>
+    <string name="button_move">გადატანა</string>
+    <string name="button_rename_v2">ახალი სახელი</string>
+    <string name="rename_group_confirm">
+    შეიყვანეთ ახალი სახელი ჯგუფისთვის „%1$s".
+</string>
+    <string name="button_delete">წაშლა</string>
+    <string name="dialog_delete">წაშლა</string>
+    <string name="delete_group_confirm">
+    ნამდვილად გინდათ წაშალოთ „%1$s" და მისი შინაარსი?
+</string>
+    <string name="delete_word_confirm">
+    ნამდვილად გინდათ წაშალოთ „%1$s"?
+</string>
+    <string name="add_word">სიტყვის დამატება</string>
+    <string name="words_count_title">ТЕСТОВАЯ ЗАПИСЬ</string>
+
+    <plurals name="words_count">
+        <item quantity="one">%d სიტყვა</item>
+        <item quantity="other">%d სიტყვა</item>
+    </plurals>
+
+    <!--languages-->
+    <string name="language_english">ინგლისური</string>
+    <string name="language_spanish">ესპანური</string>
+    <string name="language_russian">რუსული</string>
+    <string name="language_french">ფრანგული</string>
+    <string name="language_german">გერმანული</string>
+    <string name="language_armenian">სომხური</string>
+    <string name="language_serbian">სერბული</string>
+    <string name="language_georgian">ქართული</string>
+    <string name="language_kazakh">ყაზახური</string>
+
+    <!--premium-->
+    <string name="premium_dialog_title">პრემიუმ ფუნქცია</string>
+    <string name="premium_dialog_message">3-ზე მეტი ჯგუფის შექმნა ხელმისაწვდომია პრემიუმ ვერსიაში.</string>
+    <string name="premium_dialog_message_groups">10-ზე მეტი ჩანაწერის შექმნა ხელმისაწვდომია პრემიუმ ვერსიაში.</string>
+    <string name="premium_dialog_confirm">გაიგე მეტი</string>
+    <string name="premium_dialog_decline">არა ახლა</string>
+
+    <!--words_pack-->
+    <string name="word_packs_title">მზა სიტყვების ნაკრები</string>
+    <string name="word_packs_empty">ამ ენების წყვილისთვის ნაკრები არ მოიძებნა</string>
+    <string name="word_pack_install">ინსტალაცია</string>
+    <string name="word_pack_installed">„%s" დაემატა ლექსიკონში</string>
+
+    <string name="update_ready_message">განახლება მზადაა დასაინსტალირებლად</string>
+    <string name="update_restart_button">გადატვირთვა</string>
+
+    <string name="arm_script_hayeren">Հայերեն</string>
+    <string name="arm_script_latin">Armenian</string>
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
+</resources>

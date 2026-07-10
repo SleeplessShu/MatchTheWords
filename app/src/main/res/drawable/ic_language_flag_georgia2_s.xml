@@ -1,0 +1,35 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <clip-path
+            android:pathData="M6,0L18,0A6,6 0,0 1,24 6L24,18A6,6 0,0 1,18 24L6,24A6,6 0,0 1,0 18L0,6A6,6 0,0 1,6 0z"/>
+
+        <!-- Белое поле -->
+        <path
+            android:pathData="M6,0L18,0A6,6 0,0 1,24 6L24,18A6,6 0,0 1,18 24L6,24A6,6 0,0 1,0 18L0,6A6,6 0,0 1,6 0z"
+            android:fillColor="#F5F1E8"/>
+
+        <!-- Большой крест Св. Георгия -->
+        <path
+            android:pathData="M10,0h4v24h-4z M0,10h24v4h-24z"
+            android:fillColor="#E75246"/>
+
+        <!-- Четыре малых креста (болнисские, упрощённые) -->
+        <path
+            android:pathData="M2.75,4.25h4.5v1.5h-4.5z M4.25,2.75h1.5v4.5h-1.5z
+                          M16.75,4.25h4.5v1.5h-4.5z M18.25,2.75h1.5v4.5h-1.5z
+                          M2.75,18.25h4.5v1.5h-4.5z M4.25,16.75h1.5v4.5h-1.5z
+                          M16.75,18.25h4.5v1.5h-4.5z M18.25,16.75h1.5v4.5h-1.5z"
+            android:fillColor="#E75246"/>
+    </group>
+
+    <!-- Рамка -->
+    <path
+        android:pathData="M6,1L18,1A5,5 0,0 1,23 6L23,18A5,5 0,0 1,18 23L6,23A5,5 0,0 1,1 18L1,6A5,5 0,0 1,6 1z"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeColor="#E4DBC2"/>
+</vector>

@@ -84,6 +84,10 @@ class WordsRepository(
                 armenian = u?.armenian ?: g.armenian,
                 serbian = u?.serbian ?: g.serbian,
                 armTranslit = g.armTranslit,
+                georgian = u?.georgian ?: g.georgian,
+                georgianTranslit = g.georgianTranslit,
+                kazakh = u?.kazakh ?: g.kazakh,
+                kazTranslit = g.kazakhTranslit,
             )
         }
 
@@ -98,14 +102,16 @@ class WordsRepository(
                 german = u.german,
                 armenian = u.armenian,
                 serbian = u.serbian,
+                georgian = u.georgian,
+                kazakh = u.kazakh,
             )
         }
 
         val pool = (mergedGlobal + mergedUserGroup).shuffled().take(wordsNeeded)
 
         return pool.mapNotNull { w ->
-            val w1 = w.toWord(lang1, useArmTranslit = useArmTranslit)
-            val w2 = w.toWord(lang2, useArmTranslit = useArmTranslit)
+            val w1 = w.toWord(lang1, useTranslit = useArmTranslit)
+            val w2 = w.toWord(lang2, useTranslit = useArmTranslit)
             if (!w1.isValid || !w2.isValid) null
             else w1 to w2
         }
@@ -136,7 +142,9 @@ class WordsRepository(
                     french = globalEntity?.french,
                     german = globalEntity?.german,
                     armenian = globalEntity?.armenian,
-                    serbian = globalEntity?.serbian
+                    serbian = globalEntity?.serbian,
+                    georgian = globalEntity?.georgian,
+                    kazakh = globalEntity?.kazakh,
                 )
             )
         }
@@ -160,7 +168,9 @@ class WordsRepository(
                 french = globalEntity?.french,
                 german = globalEntity?.german,
                 armenian = globalEntity?.armenian,
-                serbian = globalEntity?.serbian
+                serbian = globalEntity?.serbian,
+                georgian = globalEntity?.georgian,
+                kazakh = globalEntity?.kazakh,
             )
         )
         appPrefs.markLocalDatabaseDirty()
@@ -191,7 +201,9 @@ class WordsRepository(
                 french = fields.french,
                 german = fields.german,
                 armenian = fields.armenian,
-                serbian = fields.serbian
+                serbian = fields.serbian,
+                georgian = fields.georgian,
+                kazakh = fields.kazakh,
             )
         )
         appPrefs.markLocalDatabaseDirty()
@@ -241,15 +253,17 @@ class WordsRepository(
         appPrefs.markLocalDatabaseDirty()
     }
 
-    private fun CombinedWord.toWord(language: Language, useArmTranslit: Boolean = false): Word {
+    private fun CombinedWord.toWord(language: Language, useTranslit: Boolean = false): Word {
         val text = when (language) {
             Language.ENGLISH -> english
             Language.SPANISH -> spanish
             Language.RUSSIAN -> russian
             Language.FRENCH -> french
             Language.GERMAN -> german
-            Language.ARMENIAN -> if (useArmTranslit) armTranslit ?: armenian else armenian
+            Language.ARMENIAN -> if (useTranslit) armTranslit ?: armenian else armenian
             Language.SERBIAN -> serbian
+            Language.GEORGIAN -> if (useTranslit) georgianTranslit ?: georgian else georgian
+            Language.KAZAKH -> if (useTranslit) kazTranslit ?: kazakh else kazakh
         }
 
         return if (text.isNullOrBlank()) {
@@ -285,6 +299,8 @@ class WordsRepository(
                 german = u.german,
                 armenian = u.armenian,
                 serbian = u.serbian,
+                georgian = u.georgian,
+                kazakh = u.kazakh,
             )
         }.shuffled().take(wordsNeeded)
 
@@ -315,6 +331,8 @@ class WordsRepository(
                 french = entry.french,
                 german = entry.german,
                 armenian = entry.armenian,
+                georgian = entry.georgian,
+                kazakh = entry.kazakh,
             )
         )
         appPrefs.markLocalDatabaseDirty()

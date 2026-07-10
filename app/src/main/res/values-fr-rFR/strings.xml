@@ -284,6 +284,8 @@
     <string name="language_german">Allemand</string>
     <string name="language_armenian">Arménien</string>
     <string name="language_serbian">Serbe</string>
+    <string name="language_georgian">Géorgien</string>
+    <string name="language_kazakh">Kazakh</string>
 
     <!--premium-->
     <string name="premium_dialog_title">Fonctionnalité premium</string>
@@ -300,6 +302,8 @@
 
     <string name="arm_script_hayeren">Հայերեն</string>
     <string name="arm_script_latin">Armenian</string>
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
 
     <string name="update_ready_message">Mise à jour prête à installer</string>
     <string name="update_restart_button">Redémarrer</string>

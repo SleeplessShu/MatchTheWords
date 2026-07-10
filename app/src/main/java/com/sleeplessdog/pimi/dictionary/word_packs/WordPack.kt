@@ -11,6 +11,8 @@ data class WordPack(
     val freName: String? = null,
     val gerName: String? = null,
     val armName: String? = null,
+    val geoName: String? = null,
+    val kazName: String? = null,
     val wordsCount: Int = 0,
     val words: List<WordPackEntry> = emptyList(),
 ) {
@@ -23,6 +25,8 @@ data class WordPack(
             Language.FRENCH -> freName
             Language.GERMAN -> gerName
             Language.ARMENIAN -> armName
+            Language.GEORGIAN -> geoName
+            Language.KAZAKH -> kazName
         } ?: ""
     }
 }
@@ -35,6 +39,8 @@ data class WordPackEntry(
     val french: String? = null,
     val german: String? = null,
     val armenian: String? = null,
+    val georgian: String? = null,
+    val kazakh: String? = null,
 )
 
 data class WordPackMeta(
@@ -45,6 +51,8 @@ data class WordPackMeta(
     val freName: String? = null,
     val gerName: String? = null,
     val armName: String? = null,
+    val geoName: String? = null,
+    val kazName: String? = null,
     val wordsCount: Int = 0,
     val fileName: String = "",
 ) {
@@ -57,6 +65,8 @@ data class WordPackMeta(
             Language.FRENCH -> freName
             Language.GERMAN -> gerName
             Language.ARMENIAN -> armName
+            Language.GEORGIAN -> geoName
+            Language.KAZAKH -> kazName
         } ?: engName ?: fileName
     }
 }

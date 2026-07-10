@@ -311,4 +311,7 @@
 
     <string name="arm_script_hayeren">Հայերեն</string>
     <string name="arm_script_latin">Armenian</string>
+
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
 </resources>
