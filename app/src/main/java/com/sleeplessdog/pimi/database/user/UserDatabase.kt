@@ -19,8 +19,7 @@ import com.sleeplessdog.pimi.utils.ConstantsPaths
         UserStatsEntity::class,
         WordProgressEntity::class,
         SessionLogEntity::class,
-    ],
-    version = 2
+    ], version = 3
 )
 abstract class UserDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
@@ -33,32 +32,27 @@ abstract class UserDatabase : RoomDatabase() {
     companion object {
         fun create(context: Context): UserDatabase {
             return Room.databaseBuilder(
-                context,
-                UserDatabase::class.java,
-                ConstantsPaths.USER_DATABASE_DICTIONARY_NAME
-            )
-                .addMigrations(MIGRATION_1_2)
-                .addCallback(object : Callback() {
-                    override fun onCreate(db: SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        db.execSQL(
-                            """
+                context, UserDatabase::class.java, ConstantsPaths.USER_DATABASE_DICTIONARY_NAME
+            ).addMigrations(MIGRATION_1_2, MIGRATION_2_3).addCallback(object : Callback() {
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    db.execSQL(
+                        """
                             INSERT INTO UserGroups (groupKey, title, icon)
                             VALUES ('saved_words', 'saved words', 'ic_saved_words')
                             """.trimIndent()
-                        )
-                        db.execSQL(
-                            """
+                    )
+                    db.execSQL(
+                        """
                             INSERT INTO user_stats (
                                 id, totalWordsLearned, totalGamesPlayed,
                                 totalScores, weekWordsLearned, weekGamesPlayed, weekScores,
                                 weekStartTimestamp, currentStreak, lastPlayedDate, totalSessionMinutes
                             ) VALUES (1, 0, 0, 0, 0, 0, 0, 0, 0, '', 0)
                             """.trimIndent()
-                        )
-                    }
-                })
-                .build()
+                    )
+                }
+            }).build()
         }
     }
 }
@@ -127,5 +121,11 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
         db.execSQL("DROP TABLE IF EXISTS UserWordProgress")
         db.execSQL("DROP TABLE IF EXISTS DailyStats")
         db.execSQL("DROP TABLE IF EXISTS AppStatistics")
+    }
+}
+val MIGRATION_2_3 = object : Migration(2, 3) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE UserWords ADD COLUMN georgian TEXT")
+        db.execSQL("ALTER TABLE UserWords ADD COLUMN kazakh TEXT")
     }
 }

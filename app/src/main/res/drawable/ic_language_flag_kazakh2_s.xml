@@ -1,0 +1,45 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <clip-path
+            android:pathData="M6,0L18,0A6,6 0,0 1,24 6L24,18A6,6 0,0 1,18 24L6,24A6,6 0,0 1,0 18L0,6A6,6 0,0 1,6 0z"/>
+
+        <!-- Голубое поле -->
+        <path
+            android:pathData="M6,0L18,0A6,6 0,0 1,24 6L24,18A6,6 0,0 1,18 24L6,24A6,6 0,0 1,0 18L0,6A6,6 0,0 1,6 0z"
+            android:fillColor="#6FB5C4"/>
+
+        <!-- Солнце (центр 12,9.6) -->
+        <path
+            android:pathData="M12,6.6a3,3 0,1 0,0.001 0z"
+            android:fillColor="#E0B74F"/>
+
+        <!-- Лучи -->
+        <path
+            android:pathData="M15.9,9.6L17.4,9.6 M15.38,11.55L16.68,12.3 M13.95,12.98L14.7,14.28
+                          M12,13.5L12,15 M10.05,12.98L9.3,14.28 M8.62,11.55L7.32,12.3
+                          M8.1,9.6L6.6,9.6 M8.62,7.65L7.32,6.9 M10.05,6.22L9.3,4.92
+                          M12,5.7L12,4.2 M13.95,6.22L14.7,4.92 M15.38,7.65L16.68,6.9"
+            android:strokeWidth="1"
+            android:strokeColor="#E0B74F"
+            android:strokeLineCap="round"/>
+
+        <!-- Орёл -->
+        <path
+            android:pathData="M4.2,13.2C5.4,15.6 8.4,16.92 12,17.16C15.6,16.92 18.6,15.6 19.8,13.2
+                          C18.9,16.2 15.9,18.12 12.9,18.24
+                          L13.5,19.2L12,18.72L10.5,19.2L11.1,18.24
+                          C8.1,18.12 5.1,16.2 4.2,13.2Z"
+            android:fillColor="#E0B74F"/>
+    </group>
+
+    <!-- Рамка -->
+    <path
+        android:pathData="M6,1L18,1A5,5 0,0 1,23 6L23,18A5,5 0,0 1,18 23L6,23A5,5 0,0 1,1 18L1,6A5,5 0,0 1,6 1z"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:strokeColor="#E4DBC2"/>
+</vector>

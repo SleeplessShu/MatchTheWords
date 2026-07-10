@@ -275,6 +275,8 @@
     <string name="language_german">Немачки</string>
     <string name="language_armenian">Јерменски</string>
     <string name="language_serbian">Српски</string>
+    <string name="language_georgian">Gruzijski</string>
+    <string name="language_kazakh">Kazaški</string>
 
     <!--premium-->
     <string name="premium_dialog_title">Премиум функција</string>
@@ -291,6 +293,8 @@
 
     <string name="arm_script_hayeren">Հայերեն</string>
     <string name="arm_script_latin">Armenian</string>
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
 
     <string name="update_ready_message">Ažuriranje spremno za instalaciju</string>
     <string name="update_restart_button">Ponovo pokrenuti</string>

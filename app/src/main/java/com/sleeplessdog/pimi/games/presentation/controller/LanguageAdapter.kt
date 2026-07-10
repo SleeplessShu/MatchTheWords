@@ -65,6 +65,8 @@ fun Language.toTitleRes(): Int = when (this) {
     Language.GERMAN -> R.string.language_german
     Language.ARMENIAN -> R.string.language_armenian
     Language.SERBIAN -> R.string.language_serbian
+    Language.GEORGIAN -> R.string.language_georgian
+    Language.KAZAKH -> R.string.language_kazakh
 }
 
 fun Language.toFlagSmallRes(): Int = when (this) {
@@ -75,6 +77,8 @@ fun Language.toFlagSmallRes(): Int = when (this) {
     Language.GERMAN -> R.drawable.ic_language_flag_german_s
     Language.ARMENIAN -> R.drawable.ic_language_flag_armenian_s
     Language.SERBIAN -> R.drawable.ic_language_flag_serbian_s
+    Language.GEORGIAN -> R.drawable.ic_language_flag_georgia2_s
+    Language.KAZAKH -> R.drawable.ic_language_flag_kazakh2_s
 }
 
 fun Language.toFlagLargeRes(): Int = when (this) {
@@ -85,6 +89,8 @@ fun Language.toFlagLargeRes(): Int = when (this) {
     Language.GERMAN -> R.drawable.ic_language_flag_german_l
     Language.ARMENIAN -> R.drawable.ic_language_flag_armenian_l
     Language.SERBIAN -> R.drawable.ic_language_flag_serbian_l
+    Language.GEORGIAN -> R.drawable.ic_language_flag_georgia2_l
+    Language.KAZAKH -> R.drawable.ic_language_flag_kazakh2_l
 }
 
 fun Language.toLanguageSelectAnimation(): Int = when (this) {
@@ -95,5 +101,8 @@ fun Language.toLanguageSelectAnimation(): Int = when (this) {
     Language.GERMAN -> R.raw.animation_language_select_de
     Language.ARMENIAN -> R.raw.animation_language_select_am
     Language.SERBIAN -> R.raw.animation_language_select_se
+    else -> {
+        0
+    }
 }
 

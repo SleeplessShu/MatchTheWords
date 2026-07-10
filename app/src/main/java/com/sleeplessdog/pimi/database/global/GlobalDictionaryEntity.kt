@@ -22,6 +22,10 @@ data class GlobalDictionaryEntity(
     val armenian: String?,
     val serbian: String?,
     val armTranslit: String?,
+    val georgian: String?,
+    val georgianTranslit: String?,
+    val kazakh: String?,
+    val kazakhTranslit: String?,
 )
 
 fun GlobalDictionaryEntity.toUi(
@@ -38,6 +42,8 @@ fun GlobalDictionaryEntity.toUi(
             Language.GERMAN -> german
             Language.ARMENIAN -> armenian
             Language.SERBIAN -> serbian
+            Language.GEORGIAN -> georgian
+            Language.KAZAKH -> kazakh
         } ?: ""
 
     return WordUi(

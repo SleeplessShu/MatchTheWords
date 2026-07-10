@@ -10,6 +10,8 @@ class MutableWordBuilder {
     var german: String? = null
     var armenian: String? = null
     var serbian: String? = null
+    var georgian: String? = null
+    var kazakh: String? = null
 }
 
 fun MutableWordBuilder.set(language: Language, value: String) {
@@ -21,5 +23,7 @@ fun MutableWordBuilder.set(language: Language, value: String) {
         Language.GERMAN -> german = value
         Language.ARMENIAN -> armenian = value
         Language.SERBIAN -> serbian = value
+        Language.GEORGIAN -> georgian = value
+        Language.KAZAKH -> kazakh = value
     }
 }

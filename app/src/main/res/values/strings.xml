@@ -292,6 +292,9 @@
     <string name="language_german">Немецкий</string>
     <string name="language_armenian">Армянский</string>
     <string name="language_serbian">Сербский</string>
+    <string name="language_georgian">Грузинский</string>
+    <string name="language_kazakh">Казахский</string>
+
 
     <!--premium-->
     <string name="premium_dialog_title">Премиум функция</string>
@@ -311,4 +314,6 @@
 
     <string name="arm_script_hayeren">Հայերեն</string>
     <string name="arm_script_latin">Armenian</string>
+    <string name="ka_script_mkhedruli">ქართული</string>
+    <string name="ka_script_latin">Georgian</string>
 </resources>

@@ -25,11 +25,8 @@ import com.sleeplessdog.pimi.settings.Language
 data class UserWordEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-
     val globalId: Long?,
-
     val groupId: String,
-
     val english: String?,
     val spanish: String?,
     val russian: String?,
@@ -37,7 +34,8 @@ data class UserWordEntity(
     val german: String?,
     val armenian: String?,
     val serbian: String?,
-
+    val georgian: String?,
+    val kazakh: String?,
     val addedAt: Long = System.currentTimeMillis(),
 )
 
@@ -55,6 +53,8 @@ fun UserWordEntity.toUi(
             Language.GERMAN -> german
             Language.ARMENIAN -> armenian
             Language.SERBIAN -> serbian
+            Language.GEORGIAN -> georgian
+            Language.KAZAKH -> kazakh
         } ?: ""
 
     return WordUi(

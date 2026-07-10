@@ -13,7 +13,7 @@ import com.sleeplessdog.pimi.utils.ConstantsPaths.GLOBAL_DATABASE_DICTIONARY_NAM
 
 
 @Database(
-    entities = [GlobalDictionaryEntity::class], version = 2, exportSchema = false
+    entities = [GlobalDictionaryEntity::class], version = 3, exportSchema = false
 )
 @TypeConverters(GlobalDbConverters::class)
 abstract class GlobalDatabase : RoomDatabase() {
@@ -28,22 +28,34 @@ abstract class GlobalDatabase : RoomDatabase() {
                 )
             }
         }
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN georgian TEXT")
+                database.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN georgianTranslit TEXT")
+                database.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN kazakh TEXT")
+                database.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN kazakhTranslit TEXT")
+            }
+        }
 
         fun create(context: Context): GlobalDatabase = Room.databaseBuilder(
             context, GlobalDatabase::class.java, GLOBAL_DATABASE_DICTIONARY_NAME
         ).createFromAsset(
-            ASSETS_DATABASE_DICTIONARY_PATH,
-            object : RoomDatabase.PrepackagedDatabaseCallback() {
+            ASSETS_DATABASE_DICTIONARY_PATH, object : RoomDatabase.PrepackagedDatabaseCallback() {
                 override fun onOpenPrepackagedDatabase(db: SupportSQLiteDatabase) {
-                    try {
-                        db.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN armTranslit TEXT")
-                    } catch (e: Exception) {
-                        Log.d(
-                            "GlobalDatabase setup",
-                            "onOpenPrepackagedDatabase: armTranslit column already exists"
-                        )
+                    listOf(
+                        "armTranslit TEXT",
+                        "georgian TEXT",
+                        "georgianTranslit TEXT",
+                        "kazakh TEXT",
+                        "kazakhTranslit TEXT"
+                    ).forEach { columnDef ->
+                        try {
+                            db.execSQL("ALTER TABLE GlobalDictionary ADD COLUMN $columnDef")
+                        } catch (e: Exception) {
+                            Log.d("GlobalDatabase", "Column already exists: $columnDef")
+                        }
                     }
                 }
-            }).addMigrations(MIGRATION_1_2).build()
+            }).addMigrations(MIGRATION_1_2, MIGRATION_2_3).build()
     }
 }

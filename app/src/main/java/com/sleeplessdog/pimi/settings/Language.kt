@@ -4,13 +4,7 @@ import com.sleeplessdog.pimi.games.domain.models.MutableWordBuilder
 import java.util.Locale
 
 enum class Language {
-    ENGLISH,
-    SPANISH,
-    RUSSIAN,
-    FRENCH,
-    GERMAN,
-    ARMENIAN,
-    SERBIAN;
+    ENGLISH, SPANISH, RUSSIAN, FRENCH, GERMAN, ARMENIAN, SERBIAN, GEORGIAN, KAZAKH;
 
     fun toLocale(): Locale = when (this) {
         Language.ENGLISH -> Locale("en")
@@ -20,6 +14,8 @@ enum class Language {
         Language.GERMAN -> Locale("de")
         Language.ARMENIAN -> Locale("hy")
         Language.SERBIAN -> Locale("sr")
+        Language.GEORGIAN -> Locale("ka")
+        Language.KAZAKH -> Locale("kk")
     }
 
     fun apply(value: String, entity: MutableWordBuilder) {
@@ -31,6 +27,8 @@ enum class Language {
             GERMAN -> entity.german = value
             ARMENIAN -> entity.armenian = value
             SERBIAN -> entity.serbian = value
+            GEORGIAN -> entity.georgian = value
+            KAZAKH -> entity.kazakh = value
         }
     }
 
