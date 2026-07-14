@@ -40,12 +40,7 @@ class WordsRepository(
         val isRandom = categories.contains(WordsGroupsList.RANDOM.toString())
                 || categories.isEmpty()
 
-        val useLatin = when {
-            languageStudy == Language.ARMENIAN -> appPrefs.getUseArmLatin()
-            languageStudy == Language.GEORGIAN -> appPrefs.getKaScript()
-            languageStudy == Language.KAZAKH -> appPrefs.getKkScript()
-            else -> false
-        }
+        val useLatin = appPrefs.getUseLatinScript(languageStudy)
 
         val globalWords = when {
             isRandom && globalCategoryKeys.isEmpty() -> globalDao.getWordsWOGroups(levelWords)
@@ -87,7 +82,7 @@ class WordsRepository(
                 georgian = u?.georgian ?: g.georgian,
                 georgianTranslit = g.georgianTranslit,
                 kazakh = u?.kazakh ?: g.kazakh,
-                kazTranslit = g.kazakhTranslit,
+                kazakhTranslit = g.kazakhTranslit,
             )
         }
 
@@ -271,7 +266,7 @@ class WordsRepository(
             Language.ARMENIAN -> if (useLatin) armTranslit ?: armenian else armenian
             Language.SERBIAN -> serbian
             Language.GEORGIAN -> if (useLatin) georgianTranslit ?: georgian else georgian
-            Language.KAZAKH -> if (useLatin) kazTranslit ?: kazakh else kazakh
+            Language.KAZAKH -> if (useLatin) kazakhTranslit ?: kazakh else kazakh
         }
 
         return if (text.isNullOrBlank()) {

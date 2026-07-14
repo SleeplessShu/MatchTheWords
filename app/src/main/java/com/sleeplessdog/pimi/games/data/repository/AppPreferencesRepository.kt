@@ -49,6 +49,8 @@ interface AppPrefs {
 
     fun getKkScript(): Boolean
     fun setUseKkLatin(isNative: Boolean)
+
+    fun getUseLatinScript(language: Language): Boolean
 }
 
 class AppPrefsImpl(
@@ -185,5 +187,12 @@ class AppPrefsImpl(
 
     override fun setUseKkLatin(useLatin: Boolean) {
         prefs.edit().putBoolean("kk_script_native", useLatin).apply()
+    }
+
+    override fun getUseLatinScript(language: Language): Boolean = when (language) {
+        Language.ARMENIAN -> getUseArmLatin()
+        Language.GEORGIAN -> getKaScript()
+        Language.KAZAKH -> getKkScript()
+        else -> false
     }
 }
