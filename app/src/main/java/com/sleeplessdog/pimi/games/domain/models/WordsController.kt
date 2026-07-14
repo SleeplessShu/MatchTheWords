@@ -10,20 +10,20 @@ class WordsController(
 ) {
 
     suspend fun getWordPairs(
-        language1: Language,
-        language2: Language,
-        levels: Set<LanguageLevel>,
+        languageUi: Language,
+        languageStudy: Language,
+        levelWords: Set<LanguageLevel>,
         wordsNeeded: Int,
         categories: Set<String>,
     ): List<Pair<Word, Word>> {
 
         if (wordsNeeded <= 0) return emptyList()
-        if (language1 == language2) return emptyList()
+        if (languageUi == languageStudy) return emptyList()
 
         return repository.getWordPairs(
-            lang1 = language1,
-            lang2 = language2,
-            levels = levels,
+            languageUi = languageUi,
+            languageStudy = languageStudy,
+            levelWords = levelWords,
             wordsNeeded = wordsNeeded,
             categories = categories
         )

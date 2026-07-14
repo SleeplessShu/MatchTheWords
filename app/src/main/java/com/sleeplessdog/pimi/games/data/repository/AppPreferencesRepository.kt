@@ -41,8 +41,14 @@ interface AppPrefs {
     fun markLocalDatabaseClear()
     fun getLocalDatabaseDirty(): Boolean
 
-    fun getArmScript(): Boolean
-    fun saveArmScript(isHayeren: Boolean)
+    fun getUseArmLatin(): Boolean
+    fun setUseArmLatin(isNative: Boolean)
+
+    fun getKaScript(): Boolean
+    fun setUseKaLatin(isNative: Boolean)
+
+    fun getKkScript(): Boolean
+    fun setUseKkLatin(isNative: Boolean)
 }
 
 class AppPrefsImpl(
@@ -161,11 +167,23 @@ class AppPrefsImpl(
         return prefs.getBoolean(ConstantsPaths.USER_DATABASE_DICTIONARY_IS_DIRTY, false)
     }
 
-    override fun getArmScript(): Boolean =
-        prefs.getBoolean("arm_script_hayeren", false)
+    override fun getUseArmLatin(): Boolean = prefs.getBoolean("arm_script_hayeren", false)
 
-    override fun saveArmScript(isHayeren: Boolean) {
-        prefs.edit().putBoolean("arm_script_hayeren", isHayeren).apply()
+    override fun setUseArmLatin(useLatin: Boolean) {
+        prefs.edit().putBoolean("arm_script_hayeren", useLatin).apply()
+    }
+
+    override fun getKaScript(): Boolean =
+        prefs.getBoolean("ka_script_native", false)
+
+    override fun setUseKaLatin(useLatin: Boolean) {
+        prefs.edit().putBoolean("ka_script_native", useLatin).apply()
+    }
+
+    override fun getKkScript(): Boolean =
+        prefs.getBoolean("kk_script_native", false)
+
+    override fun setUseKkLatin(useLatin: Boolean) {
+        prefs.edit().putBoolean("kk_script_native", useLatin).apply()
     }
 }
-

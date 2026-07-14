@@ -6,10 +6,10 @@ import com.sleeplessdog.pimi.settings.Language
 import com.sleeplessdog.pimi.settings.LanguageLevel
 
 data class GameSettings(
-    val language1: Language = Language.RUSSIAN,
-    val language2: Language = Language.SPANISH,
-    val level: Set<LanguageLevel> = setOf(LanguageLevel.A1),
+    val languageUi: Language = Language.RUSSIAN,
+    val languageStudy: Language = Language.SPANISH,
+    val levelWords: Set<LanguageLevel> = setOf(LanguageLevel.A1),
+    val levelDifficulty: DifficultyLevel = DifficultyLevel.MEDIUM,
     val category: Set<String> = setOf(WordsGroupsList.RANDOM.toString()),
-    val difficult: DifficultyLevel = DifficultyLevel.MEDIUM,
 )
 

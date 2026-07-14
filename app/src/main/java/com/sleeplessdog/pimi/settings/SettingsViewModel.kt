@@ -36,6 +36,9 @@ class SettingsViewModel(
     private val _studyLanguage = MutableLiveData<Language>()
     val studyLanguage: LiveData<Language> = _studyLanguage
 
+    private val _scriptToggle = MutableLiveData(ScriptToggleState(false))
+    val scriptToggle: LiveData<ScriptToggleState> = _scriptToggle
+
     private val _uiLanguageList = MutableLiveData<List<Language>>()
     val uiLanguageList: LiveData<List<Language>> = _uiLanguageList
 
@@ -50,9 +53,6 @@ class SettingsViewModel(
 
     private val _difficulty = MutableLiveData<DifficultyLevel>()
     val difficulty: LiveData<DifficultyLevel> = _difficulty
-
-    private val _armScriptHayeren = MutableLiveData(appPrefs.getArmScript())
-    val armScriptHayeren: LiveData<Boolean> = _armScriptHayeren
 
     val state: StateFlow<CombinedGroupsSettingsUi> = observeAllGroups().map { domain ->
         CombinedGroupsSettingsUi(
@@ -70,6 +70,7 @@ class SettingsViewModel(
         viewModelScope.launch {
             appPrefs.observeStudyLanguage().collect { newLanguage ->
                 _studyLanguage.value = newLanguage
+                updateScriptToggle(newLanguage)
             }
         }
 
@@ -94,6 +95,7 @@ class SettingsViewModel(
         loadDifficulty()
     }
 
+
     fun onToggle(key: String) = viewModelScope.launch {
         toggleUC(key)
     }
@@ -111,6 +113,7 @@ class SettingsViewModel(
                 applyLocale(newLang)
                 rebuild(newLang, study)
                 _restartActivity.value = Unit
+                updateScriptToggle(newLang)
             }
 
             LanguageAdapterState.STUDY -> {
@@ -158,9 +161,53 @@ class SettingsViewModel(
         }
     }
 
-    fun onArmScriptPicked(isHayeren: Boolean) {
-        _armScriptHayeren.value = isHayeren
-        appPrefs.saveArmScript(isHayeren)
+    private fun updateScriptToggle(newLang: Language) {
+        val scriptToggleValue = when (newLang) {
+            Language.ARMENIAN -> ScriptToggleState(
+                true,
+                isScriptLatin = appPrefs.getUseArmLatin(),
+                nativeButtonText = getString(app, R.string.arm_script_hayeren),
+                latinButtonText = getString(app, R.string.arm_script_latin),
+            )
+
+            Language.GEORGIAN -> ScriptToggleState(
+                true,
+                isScriptLatin = appPrefs.getKaScript(),
+                nativeButtonText = getString(app, R.string.ka_script_mkhedruli),
+                latinButtonText = getString(app, R.string.ka_script_latin),
+            )
+
+            Language.KAZAKH -> ScriptToggleState(
+                true,
+                isScriptLatin = appPrefs.getKkScript(),
+                nativeButtonText = getString(app, R.string.kk_script_cyrillic),
+                latinButtonText = getString(app, R.string.kk_script_latin),
+            )
+
+            else -> ScriptToggleState(
+                isScriptVisible = false,
+            )
+        }
+        _scriptToggle.value = scriptToggleValue
+    }
+
+    fun latinScriptSelected() {
+        _scriptToggle.value = _scriptToggle.value?.copy(isScriptLatin = true)
+        saveTypeOfScript(useLatin = true)
+    }
+
+    fun nativeScriptSelected() {
+        _scriptToggle.value = _scriptToggle.value?.copy(isScriptLatin = false)
+        saveTypeOfScript(useLatin = false)
+    }
+
+    private fun saveTypeOfScript(useLatin: Boolean) {
+        when (appPrefs.getStudyLanguage()) {
+            Language.ARMENIAN -> appPrefs.setUseArmLatin(useLatin)
+            Language.GEORGIAN -> appPrefs.setUseKaLatin(useLatin)
+            Language.KAZAKH -> appPrefs.setUseKkLatin(useLatin)
+            else -> {}
+        }
     }
 
     private fun rebuild(ui: Language, study: Language) {
