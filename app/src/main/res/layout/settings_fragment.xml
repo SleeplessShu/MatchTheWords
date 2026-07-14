@@ -19,7 +19,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="20dp" />
 
-    <!-- Заголовок — остаётся фиксированным вверху -->
     <TextView
         android:id="@+id/settingsHeader"
         style="@style/Text.H2.HeadlineLarge"
@@ -53,7 +52,6 @@
         app:layout_constraintEnd_toEndOf="@id/rightBorder"
         app:layout_constraintTop_toTopOf="@id/settingsHeader" />
 
-    <!-- Весь скроллабл контент -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollContent"
         android:layout_width="0dp"
@@ -87,7 +85,7 @@
                 app:layout_constraintGuide_end="20dp" />
 
             <LinearLayout
-                android:id="@+id/armLanguageToggle"
+                android:id="@+id/nativeOrLatinLanguageToggle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -99,13 +97,13 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/btnArmHay"
+                    android:id="@+id/btnNative"
                     style="@style/Settings.Level.Button"
                     android:layout_marginEnd="8dp"
                     android:text="@string/arm_script_hayeren" />
 
                 <com.google.android.material.chip.Chip
-                    android:id="@+id/btnArmLatin"
+                    android:id="@+id/btnLatin"
                     style="@style/Settings.Level.Button"
                     android:text="@string/arm_script_latin" />
 
@@ -122,7 +120,7 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@id/rightBorderInner"
                 app:layout_constraintStart_toStartOf="@id/leftBorderInner"
-                app:layout_constraintTop_toBottomOf="@+id/armLanguageToggle" />
+                app:layout_constraintTop_toBottomOf="@+id/nativeOrLatinLanguageToggle" />
 
             <LinearLayout
                 android:id="@+id/words_groups_chips"
@@ -277,7 +275,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Оверлеи поверх скролла — остаются как были -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/languageSelectRoot"
         android:layout_width="0dp"

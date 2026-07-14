@@ -90,20 +90,16 @@ class GameViewModel(
         onLoading()
 
         val selectedGroups = getSelectedGroupsUC()
-
-        /*val enums: Set<WordsGroupsList> = selectedGroups.mapNotNull { key ->
-            WordsGroupsList.values().find { it.key == key }
-        }.toSet()*/
-        val interfaceLang = appPrefs.getUiLanguage()
-        val studyLang = appPrefs.getStudyLanguage()
-        val difficultLevel = appPrefs.getDifficulty()
-        val wordsLevel = appPrefs.getLevels()
+        val languageUi = appPrefs.getUiLanguage()
+        val languageStudy = appPrefs.getStudyLanguage()
+        val levelDifficulty = appPrefs.getDifficulty()
+        val levelWords = appPrefs.getLevels()
 
         _gameSettings.value = GameSettings(
-            language1 = interfaceLang,
-            language2 = studyLang,
-            difficult = difficultLevel,
-            level = wordsLevel,
+            languageUi = languageUi,
+            languageStudy = languageStudy,
+            levelDifficulty = levelDifficulty,
+            levelWords = levelWords,
             category = selectedGroups
         )
     }
@@ -272,16 +268,16 @@ class GameViewModel(
         Log.d("WORDS_DEBUG", "forcedGroupKey: $forcedGroupKey")
         Log.d("WORDS_DEBUG", "forcedGroupIsUser: $forcedGroupIsUser")
         Log.d("WORDS_DEBUG", "settings.category: ${settings.category}")
-        Log.d("WORDS_DEBUG", "settings.level: ${settings.level}")
-        Log.d("WORDS_DEBUG", "settings.language1: ${settings.language1}")
-        Log.d("WORDS_DEBUG", "settings.language2: ${settings.language2}")
+        Log.d("WORDS_DEBUG", "settings.level: ${settings.levelWords}")
+        Log.d("WORDS_DEBUG", "settings.language1: ${settings.languageUi}")
+        Log.d("WORDS_DEBUG", "settings.language2: ${settings.languageStudy}")
         Log.d("WORDS_DEBUG", "wordsNeeded: $wordsNeeded")
         val pairs = when {
             forcedGroupKey != null && forcedGroupIsUser -> {
                 wordsController.getWordPairs(
-                    language1 = settings.language1,
-                    language2 = settings.language2,
-                    levels = LanguageLevel.values().toSet(),
+                    languageUi = settings.languageUi,
+                    languageStudy = settings.languageStudy,
+                    levelWords = LanguageLevel.values().toSet(),
                     wordsNeeded = wordsNeeded,
                     categories = setOf(forcedGroupKey!!)
                 )
@@ -290,9 +286,9 @@ class GameViewModel(
             forcedGroupKey != null -> {
                 Log.d("WORDS_DEBUG", "categories to load: ${setOf(forcedGroupKey!!)}")
                 wordsController.getWordPairs(
-                    language1 = settings.language1,
-                    language2 = settings.language2,
-                    levels = LanguageLevel.values().toSet(),
+                    languageUi = settings.languageUi,
+                    languageStudy = settings.languageStudy,
+                    levelWords = LanguageLevel.values().toSet(),
                     wordsNeeded = wordsNeeded,
                     categories = setOf(forcedGroupKey!!)
                 )
@@ -300,9 +296,9 @@ class GameViewModel(
 
             else -> {
                 wordsController.getWordPairs(
-                    language1 = settings.language1,
-                    language2 = settings.language2,
-                    levels = settings.level,
+                    languageUi = settings.languageUi,
+                    languageStudy = settings.languageStudy,
+                    levelWords = settings.levelWords,
                     wordsNeeded = wordsNeeded,
                     categories = settings.category
                 )
@@ -364,15 +360,15 @@ class GameViewModel(
         score = 0
 
         difficultLevel = SupportFunctions.getGameDifficult(
-            _gameSettings.value?.difficult ?: DifficultyLevel.MEDIUM
+            _gameSettings.value?.levelDifficulty ?: DifficultyLevel.MEDIUM
         )
 
         lives = SupportFunctions.getLivesCount(
-            _gameSettings.value?.difficult ?: DifficultyLevel.MEDIUM
+            _gameSettings.value?.levelDifficulty ?: DifficultyLevel.MEDIUM
         )
 
         progressSegments = progressController.stepsFor(
-            _gameSettings.value?.difficult ?: DifficultyLevel.MEDIUM,
+            _gameSettings.value?.levelDifficulty ?: DifficultyLevel.MEDIUM,
             _gameState.value?.gameType ?: GameType.MATCH8
         )
 

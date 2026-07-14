@@ -22,9 +22,9 @@ class WordsRepository(
 ) {
 
     suspend fun getWordPairs(
-        lang1: Language,
-        lang2: Language,
-        levels: Set<LanguageLevel>,
+        languageUi: Language,
+        languageStudy: Language,
+        levelWords: Set<LanguageLevel>,
         wordsNeeded: Int,
         categories: Set<String>,
     ): List<Pair<Word, Word>> {
@@ -40,20 +40,20 @@ class WordsRepository(
         val isRandom = categories.contains(WordsGroupsList.RANDOM.toString())
                 || categories.isEmpty()
 
-        val useArmTranslit = appPrefs.getArmScript().not()
-
-        Log.d("REPO_DEBUG", "categories: $categories")
-        Log.d("REPO_DEBUG", "globalGroupKeys sample: ${globalGroupKeys.take(5)}")
-        Log.d("REPO_DEBUG", "globalCategoryKeys: $globalCategoryKeys")
-        Log.d("REPO_DEBUG", "userGroupKeys: $userGroupKeys")
-        Log.d("REPO_DEBUG", "isRandom: $isRandom")
-        Log.d("REPO_DEBUG", "levels: $levels")
-        Log.d("REPO_DEBUG", "useArmTranslit: $useArmTranslit")
-
+        val useLatin = when {
+            languageStudy == Language.ARMENIAN -> appPrefs.getUseArmLatin()
+            languageStudy == Language.GEORGIAN -> appPrefs.getKaScript()
+            languageStudy == Language.KAZAKH -> appPrefs.getKkScript()
+            else -> false
+        }
 
         val globalWords = when {
-            isRandom && globalCategoryKeys.isEmpty() -> globalDao.getWordsWOGroups(levels)
-            globalCategoryKeys.isNotEmpty() -> globalDao.getWordsWGroups(levels, globalCategoryKeys)
+            isRandom && globalCategoryKeys.isEmpty() -> globalDao.getWordsWOGroups(levelWords)
+            globalCategoryKeys.isNotEmpty() -> globalDao.getWordsWGroups(
+                levelWords,
+                globalCategoryKeys
+            )
+
             else -> emptyList()
         }
 
@@ -108,13 +108,21 @@ class WordsRepository(
         }
 
         val pool = (mergedGlobal + mergedUserGroup).shuffled().take(wordsNeeded)
-
-        return pool.mapNotNull { w ->
-            val w1 = w.toWord(lang1, useTranslit = useArmTranslit)
-            val w2 = w.toWord(lang2, useTranslit = useArmTranslit)
-            if (!w1.isValid || !w2.isValid) null
-            else w1 to w2
+        Log.d("WORDS_DEBUG", "lang1=$languageUi lang2=$languageStudy useTranslit=$useLatin")
+        Log.d("WORDS_DEBUG", "globalWords count: ${globalWords.size}")
+        Log.d("WORDS_DEBUG", "pool size: ${pool.size}")
+        val result = pool.mapNotNull { w ->
+            val poolLanguageUi = w.toWord(languageUi, false)
+            val poolLanguageStudy = w.toWord(languageStudy, useLatin = useLatin)
+            Log.d(
+                "WORDS_DEBUG",
+                "georgian=${w.georgian} georgianTranslit=${w.georgianTranslit} w1=${poolLanguageUi.text} w1valid=${poolLanguageUi.isValid} w2=${poolLanguageStudy.text} w2valid=${poolLanguageStudy.isValid}"
+            )
+            if (!poolLanguageUi.isValid || !poolLanguageStudy.isValid) null
+            else poolLanguageUi to poolLanguageStudy
         }
+        Log.d("WORDS_DEBUG", "result size: ${result.size}")
+        return result
     }
 
     suspend fun addGlobalWordsListToUserWords(globalIds: List<Int>) {
@@ -253,17 +261,17 @@ class WordsRepository(
         appPrefs.markLocalDatabaseDirty()
     }
 
-    private fun CombinedWord.toWord(language: Language, useTranslit: Boolean = false): Word {
+    private fun CombinedWord.toWord(language: Language, useLatin: Boolean = false): Word {
         val text = when (language) {
             Language.ENGLISH -> english
             Language.SPANISH -> spanish
             Language.RUSSIAN -> russian
             Language.FRENCH -> french
             Language.GERMAN -> german
-            Language.ARMENIAN -> if (useTranslit) armTranslit ?: armenian else armenian
+            Language.ARMENIAN -> if (useLatin) armTranslit ?: armenian else armenian
             Language.SERBIAN -> serbian
-            Language.GEORGIAN -> if (useTranslit) georgianTranslit ?: georgian else georgian
-            Language.KAZAKH -> if (useTranslit) kazTranslit ?: kazakh else kazakh
+            Language.GEORGIAN -> if (useLatin) georgianTranslit ?: georgian else georgian
+            Language.KAZAKH -> if (useLatin) kazTranslit ?: kazakh else kazakh
         }
 
         return if (text.isNullOrBlank()) {

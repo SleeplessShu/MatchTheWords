@@ -295,6 +295,8 @@
     <string name="arm_script_latin">Armenian</string>
     <string name="ka_script_mkhedruli">ქართული</string>
     <string name="ka_script_latin">Georgian</string>
+    <string name="kk_script_cyrillic">Қазақша</string>
+    <string name="kk_script_latin">Kazakh</string>
 
     <string name="update_ready_message">Ažuriranje spremno za instalaciju</string>
     <string name="update_restart_button">Ponovo pokrenuti</string>
