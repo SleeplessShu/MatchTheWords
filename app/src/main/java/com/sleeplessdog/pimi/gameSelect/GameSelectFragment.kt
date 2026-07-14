@@ -104,7 +104,9 @@ class GameSelectFragment : Fragment() {
                 if (binding.landingLanguageOverlayView.root.isVisible) {
                     val wearingHatAnimation = picked.toLanguageSelectAnimation()
 
-                    playPimiWearHat(wearingHatAnimation)
+                    if (wearingHatAnimation != 0) {
+                        playPimiWearHat(wearingHatAnimation)
+                    }
                 }
                 languageMenuManager.hide()
             }, 150)

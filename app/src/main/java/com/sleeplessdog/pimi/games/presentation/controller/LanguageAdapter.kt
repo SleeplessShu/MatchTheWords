@@ -101,8 +101,7 @@ fun Language.toLanguageSelectAnimation(): Int = when (this) {
     Language.GERMAN -> R.raw.animation_language_select_de
     Language.ARMENIAN -> R.raw.animation_language_select_am
     Language.SERBIAN -> R.raw.animation_language_select_se
-    else -> {
-        0
-    }
+    Language.GEORGIAN -> R.raw.animation_language_select_am
+    Language.KAZAKH -> R.raw.animation_language_select_am
 }
 
