@@ -29,8 +29,9 @@ data class GlobalDictionaryEntity(
 )
 
 fun GlobalDictionaryEntity.toUi(
-    ui: Language,
-    study: Language,
+    languageUi: Language,
+    languageStudy: Language,
+    useLatinScript: Boolean,
 ): WordUi {
 
     fun valueByLanguage(lang: Language): String =
@@ -40,15 +41,15 @@ fun GlobalDictionaryEntity.toUi(
             Language.RUSSIAN -> russian
             Language.FRENCH -> french
             Language.GERMAN -> german
-            Language.ARMENIAN -> armenian
+            Language.ARMENIAN -> if (useLatinScript) armTranslit ?: armenian else armenian
             Language.SERBIAN -> serbian
-            Language.GEORGIAN -> georgian
-            Language.KAZAKH -> kazakh
+            Language.GEORGIAN -> if (useLatinScript) georgianTranslit ?: georgian else georgian
+            Language.KAZAKH -> if (useLatinScript) kazakhTranslit ?: kazakh else kazakh
         } ?: ""
 
     return WordUi(
         id = id,
-        word = valueByLanguage(study),
-        translation = valueByLanguage(ui)
+        word = valueByLanguage(languageStudy),
+        translation = valueByLanguage(languageUi)
     )
 }

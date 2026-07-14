@@ -14,5 +14,5 @@ data class CombinedWord(
     val georgian: String?,
     val georgianTranslit: String? = null,
     val kazakh: String?,
-    val kazTranslit: String? = null,
+    val kazakhTranslit: String? = null,
 )

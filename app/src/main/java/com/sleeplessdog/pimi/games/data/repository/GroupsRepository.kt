@@ -178,10 +178,12 @@ class GroupsRepository(
     }
 
     suspend fun getGlobalGroupWordsOnceUC(
-        groupId: String, ui: Language, study: Language,
+        groupId: String, languageUi: Language, languageStudy: Language,
     ): List<WordUi> {
+        val useLatinScript = appPrefs.getUseLatinScript(languageStudy)
         val globalDao = databaseProvider.getGlobalDatabase().globalDao()
-        return globalDao.getWordsByGroup(groupId).map { it.toUi(ui, study) }
+        return globalDao.getWordsByGroup(groupId)
+            .map { it.toUi(languageUi, languageStudy, useLatinScript) }
     }
 
     suspend fun getGroupTitleById(
