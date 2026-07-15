@@ -1,5 +1,6 @@
 package com.sleeplessdog.pimi.dictionary.group_screen
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,14 +15,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Divider
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,10 +33,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.sleeplessdog.pimi.R
 import com.sleeplessdog.pimi.dictionary.WordActionsMenu
 import com.sleeplessdog.pimi.dictionary.dialogs.DeletingDialog
@@ -46,6 +51,7 @@ import com.sleeplessdog.pimi.utils.Gray05
 import com.sleeplessdog.pimi.utils.t1Title
 import com.sleeplessdog.pimi.utils.t3Text
 import com.sleeplessdog.pimi.utils.t4Text
+import kotlinx.coroutines.delay
 
 
 @Composable
@@ -54,16 +60,34 @@ fun GroupUi(
     onBackClick: () -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
+    val lifecycleOwner = LocalLifecycleOwner.current
+    val isTransitionComplete = remember { mutableStateOf(false) }
 
-    GroupScreen(
-        state = state,
-        onBackClick = onBackClick,
-        addNewUserWordsPair = viewModel::addNewUserWordsPair,
-        onEditWord = viewModel::onEditWord,
-        onMoveWord = viewModel::onMoveWord,
-        onDeleteWord = viewModel::onDeleteWord,
-        onSaveToSavedWords = viewModel::onSaveToSavedWords
-    )
+    LaunchedEffect(Unit) {
+        delay(300) // время анимации перехода
+        isTransitionComplete.value = true
+        viewModel.loadData()
+    }
+
+    if (!isTransitionComplete.value || state.loading) {
+        Box(modifier = Modifier.fillMaxSize()) {
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center),
+                color = colorResource(R.color.green_primary)
+            )
+        }
+    } else {
+        GroupScreen(
+            state = state,
+            onBackClick = onBackClick,
+            addNewUserWordsPair = viewModel::addNewUserWordsPair,
+            onEditWord = viewModel::onEditWord,
+            onMoveWord = viewModel::onMoveWord,
+            onDeleteWord = viewModel::onDeleteWord,
+            onSaveToSavedWords = viewModel::onSaveToSavedWords
+        )
+    }
+
 }
 
 @Composable
@@ -88,92 +112,104 @@ fun GroupScreen(
             .fillMaxSize()
             .background(BlackPrimary)
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            val displayTitle = if (state.groupTitleRes != 0) {
-                stringResource(state.groupTitleRes)
-            } else {
-                state.groupTitle
-            }
-            HeaderUserGroup(
-                title = displayTitle, onClick = onBackClick
+        if (state.loading) {
+            Log.d("DEBUG", "loading compose: true")
+            CircularProgressIndicator(
+                modifier = Modifier.align(Alignment.Center),
+                color = colorResource(R.color.green_primary)
             )
-
-            Spacer(Modifier.height(8.dp))
-
-            RowNumberWords(state.wordsCount)
-
-            WordAndTranslationTable(
-                words = state.words,
-                groupType = state.groupType,
-                onEditWordClick = { editingWord = it },
-                onMoveWordClick = { movingWord = it },
-                onDeleteWordClick = { deletingWord = it },
-                onSaveToSavedWordsClick = { onSaveToSavedWords(it) },
-                expanded = true
-            )
-        }
-
-        if (state.groupType == GroupType.USER) {
-            FloatingActionButton(
-                onClick = { showAddWordDialog = true },
-                containerColor = DarkTextDefault,
-                contentColor = BlackPrimary,
-                modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(
-                        end = 16.dp, bottom = 60.dp
-                    )
+        } else {
+            Column(
+                modifier = Modifier.fillMaxSize()
             ) {
-                Icon(
-                    painter = painterResource(R.drawable.icon_add), contentDescription = "Add word"
+                val displayTitle = if (state.groupTitleRes != 0) {
+                    stringResource(state.groupTitleRes)
+                } else {
+                    state.groupTitle
+                }
+                HeaderUserGroup(
+                    title = displayTitle, onClick = onBackClick
+                )
+
+                Spacer(Modifier.height(8.dp))
+
+                RowNumberWords(state.wordsCount)
+
+                WordAndTranslationTable(
+                    words = state.words,
+                    groupType = state.groupType,
+                    onEditWordClick = { editingWord = it },
+                    onMoveWordClick = { movingWord = it },
+                    onDeleteWordClick = { deletingWord = it },
+                    onSaveToSavedWordsClick = { onSaveToSavedWords(it) },
+                    expanded = true
                 )
             }
-        }
 
-        if (showAddWordDialog) {
-            WordsPairDialog(
-                dialogType = DialogType.NEW_PAIR,
-                onDismiss = { showAddWordDialog = false },
-                onConfirm = { origin, translate ->
-                    addNewUserWordsPair(origin, translate)
-                    showAddWordDialog = false
-                },
-
-                )
-        }
-
-        editingWord?.let { word ->
-            WordsPairDialog(
-                onDismiss = { editingWord = null }, onConfirm = { origin, translate ->
-                    onEditWord(
-                        WordUi(
-                            id = word.id, word = origin, translation = translate
+            if (state.groupType == GroupType.USER) {
+                FloatingActionButton(
+                    onClick = { showAddWordDialog = true },
+                    containerColor = DarkTextDefault,
+                    contentColor = BlackPrimary,
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(
+                            end = 16.dp, bottom = 60.dp
                         )
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.icon_add),
+                        contentDescription = "Add word"
                     )
-                }, dialogType = DialogType.EDIT_PAIR, word = word
-            )
-        }
+                }
+            }
 
-        movingWord?.let { word ->
-            MovingDialog(
-                word = word,
-                groups = state.groups,
-                onDismiss = { movingWord = null },
-                onConfirm = { targetGroupId ->
-                    onMoveWord(word, targetGroupId)
-                    movingWord = null
-                })
-        }
+            if (showAddWordDialog) {
+                WordsPairDialog(
+                    dialogType = DialogType.NEW_PAIR,
+                    onDismiss = { showAddWordDialog = false },
+                    onConfirm = { origin, translate ->
+                        addNewUserWordsPair(origin, translate)
+                        showAddWordDialog = false
+                    },
 
-        deletingWord?.let { word ->
-            DeletingDialog(
-                title = word.word, onDismiss = { deletingWord = null }, onConfirm = {
-                    onDeleteWord(word)
-                    deletingWord = null
-                }, dialogType = DialogType.DELETE_PAIR
-            )
+                    )
+            }
+
+            editingWord?.let { word ->
+                WordsPairDialog(
+                    onDismiss = { editingWord = null },
+                    onConfirm = { origin, translate ->
+                        onEditWord(
+                            WordUi(
+                                id = word.id, word = origin, translation = translate
+                            )
+                        )
+                    },
+                    dialogType = DialogType.EDIT_PAIR,
+                    word = word
+                )
+            }
+
+            movingWord?.let { word ->
+                MovingDialog(
+                    word = word,
+                    groups = state.groups,
+                    onDismiss = { movingWord = null },
+                    onConfirm = { targetGroupId ->
+                        onMoveWord(word, targetGroupId)
+                        movingWord = null
+                    })
+            }
+
+            deletingWord?.let { word ->
+                DeletingDialog(
+                    title = word.word, onDismiss = { deletingWord = null }, onConfirm = {
+                        onDeleteWord(word)
+                        deletingWord = null
+                    }, dialogType = DialogType.DELETE_PAIR
+                )
+            }
         }
     }
 }
@@ -237,19 +273,20 @@ fun WordAndTranslationTable(
     onSaveToSavedWordsClick: (WordUi) -> Unit,
     expanded: Boolean,
 ) {
-    val wordsToShow = if (expanded) words else words.take(3)
-    val scrollState = rememberScrollState()
-    Column(
+    val wordsToShow = if (expanded) words else words.take(10)
+    LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
                 start = 20.dp, end = 20.dp, top = 16.dp,
             )
             .clip(RoundedCornerShape(12.dp))
-            .verticalScroll(scrollState)
     ) {
-
-        wordsToShow.forEachIndexed { index, word ->
+        itemsIndexed(
+            items = wordsToShow,
+            key = { _, word -> word.id }
+        ) { index, word ->
+        
             WordAndTranslationTableRow(
                 word = word,
                 title = word.word,
@@ -304,9 +341,7 @@ fun WordAndTranslationTableRow(
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
-                text = translation,
-                style = t4Text,
-                color = DarkTextDefault.copy(alpha = 0.6f)
+                text = translation, style = t4Text, color = DarkTextDefault.copy(alpha = 0.6f)
             )
         }
         Box {

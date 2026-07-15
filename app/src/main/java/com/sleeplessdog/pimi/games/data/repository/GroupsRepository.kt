@@ -1,7 +1,7 @@
 package com.sleeplessdog.pimi.games.data.repository
 
+import android.util.Log
 import com.sleeplessdog.pimi.database.AppDatabaseProvider
-import com.sleeplessdog.pimi.database.global.toUi
 import com.sleeplessdog.pimi.database.user.UserGroupEntity
 import com.sleeplessdog.pimi.database.user.toUi
 import com.sleeplessdog.pimi.dictionary.authorisation.DatabaseInstance
@@ -39,12 +39,17 @@ class GroupsRepository(
                     userDao.observeUserGroups(), globalDao.observeAllGroupKeys()
                 ) { userGroups, globalKeys ->
 
+                    val globalWordCounts = globalDao.getGroupWordCounts()
+                        .associateBy { it.groupKey }
+
+                    val userWordCounts = userDao.getUserGroupWordCounts()
+                        .associateBy { it.groupKey }
 
                     val globalCategories = globalKeys.map { key ->
                         GroupDictionaryDomain(
                             key = key,
                             title = key,
-                            wordsInGroup = getWordsCountGlobalGroup(key),
+                            wordsInGroup = globalWordCounts[key]?.wordsCount ?: 0,
                             isUser = false
                         )
                     }
@@ -53,7 +58,7 @@ class GroupsRepository(
                         GroupDictionaryDomain(
                             key = g.groupKey,
                             title = g.title,
-                            wordsInGroup = getWordsCountUserGroup(g.groupKey),
+                            wordsInGroup = userWordCounts[g.groupKey]?.wordsCount ?: 0,
                             isUser = true
                         )
                     }
@@ -182,8 +187,15 @@ class GroupsRepository(
     ): List<WordUi> {
         val useLatinScript = appPrefs.getUseLatinScript(languageStudy)
         val globalDao = databaseProvider.getGlobalDatabase().globalDao()
-        return globalDao.getWordsByGroup(groupId)
-            .map { it.toUi(languageUi, languageStudy, useLatinScript) }
+
+        val start = System.currentTimeMillis()
+        val words = globalDao.getWordsByGroupProjection(groupId)
+        Log.d("PERF", "DB query: ${System.currentTimeMillis() - start}ms, words=${words.size}")
+
+        val mapped = words.map { it.toUi(languageUi, languageStudy, useLatinScript) }
+        Log.d("PERF", "Mapping: ${System.currentTimeMillis() - start}ms total")
+
+        return mapped
     }
 
     suspend fun getGroupTitleById(

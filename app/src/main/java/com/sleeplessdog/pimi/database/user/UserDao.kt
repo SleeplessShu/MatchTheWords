@@ -160,5 +160,17 @@ WHERE id = :wordId
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveSettings(settings: UserSettingsEntity)
 
-
+    @Query(
+        """
+    SELECT groupId as groupKey, COUNT(*) as wordsCount
+    FROM UserWords
+    WHERE groupId IS NOT NULL
+    GROUP BY groupId
+"""
+    )
+    suspend fun getUserGroupWordCounts(): List<GroupWordCount>
+    data class GroupWordCount(
+        val groupKey: String,
+        val wordsCount: Int,
+    )
 }

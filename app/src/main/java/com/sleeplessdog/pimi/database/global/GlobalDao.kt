@@ -2,6 +2,7 @@ package com.sleeplessdog.pimi.database.global
 
 import androidx.room.Dao
 import androidx.room.Query
+import com.sleeplessdog.pimi.database.user.WordProjection
 import com.sleeplessdog.pimi.settings.LanguageLevel
 import kotlinx.coroutines.flow.Flow
 
@@ -103,4 +104,31 @@ AND groupKey IN (:groupKeys)
 
     @Query("SELECT id FROM GlobalDictionary WHERE difficulty = :level AND isDeleted = 0")
     suspend fun getWordIdsByLevel(level: LanguageLevel): List<Long>
+
+    @Query(
+        """
+    SELECT groupKey, COUNT(*) as wordsCount
+    FROM GlobalDictionary
+    WHERE isDeleted = 0
+    GROUP BY groupKey
+"""
+    )
+    suspend fun getGroupWordCounts(): List<GroupWordCount>
+
+    data class GroupWordCount(
+        val groupKey: String,
+        val wordsCount: Int,
+    )
+    
+    @Query(
+        """
+    SELECT id, english, spanish, russian, french, german, 
+           armenian, serbian, georgian, kazakh,
+           armTranslit, georgianTranslit, kazakhTranslit
+    FROM GlobalDictionary
+    WHERE isDeleted = 0
+    AND groupKey = :groupKey
+"""
+    )
+    suspend fun getWordsByGroupProjection(groupKey: String): List<WordProjection>
 }
