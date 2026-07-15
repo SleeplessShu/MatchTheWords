@@ -18,10 +18,12 @@ import com.sleeplessdog.pimi.utils.DictionaryDestinations.ARG_GROUP_ID
 import com.sleeplessdog.pimi.utils.DictionaryDestinations.ARG_GROUP_NAME
 import com.sleeplessdog.pimi.utils.DictionaryDestinations.ARG_GROUP_TYPE
 import com.sleeplessdog.pimi.utils.groupTitleRes
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 sealed class GroupUiEvent {
     object ShowPremiumDialog : GroupUiEvent()
@@ -57,15 +59,19 @@ class GroupViewModel(
             ?.let { GroupType.valueOf(it) }
             ?: GroupType.GLOBAL
 
-    private val _state = MutableStateFlow(GroupScreenState())
+    private val _state = MutableStateFlow(GroupScreenState(loading = true))
     val state: StateFlow<GroupScreenState> = _state
 
     init {
         observeUserGroups()
+    }
 
-        when (groupType) {
-            GroupType.USER -> observeOneUserGroup()
-            GroupType.GLOBAL -> loadGlobalGroupOnce()
+    fun loadData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            when (groupType) {
+                GroupType.GLOBAL -> loadGlobalGroupOnce()
+                GroupType.USER -> observeOneUserGroup()
+            }
         }
     }
 
@@ -112,7 +118,9 @@ class GroupViewModel(
 
     private fun loadGlobalGroupOnce() {
         viewModelScope.launch {
-            val words = getGlobalGroupWordsOnce(groupId, ui = ui, study = study)
+            val words = withContext(Dispatchers.IO) {
+                getGlobalGroupWordsOnce(groupId, ui, study)
+            }
             val titleRes = app.groupTitleRes(groupId)
             _state.update { current ->
                 current.copy(

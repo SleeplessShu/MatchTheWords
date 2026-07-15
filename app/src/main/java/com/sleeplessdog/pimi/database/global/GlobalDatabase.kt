@@ -13,7 +13,7 @@ import com.sleeplessdog.pimi.utils.ConstantsPaths.GLOBAL_DATABASE_DICTIONARY_NAM
 
 
 @Database(
-    entities = [GlobalDictionaryEntity::class], version = 3, exportSchema = false
+    entities = [GlobalDictionaryEntity::class], version = 4, exportSchema = false
 )
 @TypeConverters(GlobalDbConverters::class)
 abstract class GlobalDatabase : RoomDatabase() {
@@ -37,6 +37,14 @@ abstract class GlobalDatabase : RoomDatabase() {
             }
         }
 
+        val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "CREATE INDEX IF NOT EXISTS index_GlobalDictionary_groupKey_isDeleted ON GlobalDictionary(groupKey, isDeleted)"
+                )
+            }
+        }
+
         fun create(context: Context): GlobalDatabase = Room.databaseBuilder(
             context, GlobalDatabase::class.java, GLOBAL_DATABASE_DICTIONARY_NAME
         ).createFromAsset(
@@ -56,6 +64,6 @@ abstract class GlobalDatabase : RoomDatabase() {
                         }
                     }
                 }
-            }).addMigrations(MIGRATION_1_2, MIGRATION_2_3).build()
+            }).addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4).build()
     }
 }

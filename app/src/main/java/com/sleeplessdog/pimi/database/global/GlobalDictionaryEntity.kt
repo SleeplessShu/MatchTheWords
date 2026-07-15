@@ -1,12 +1,16 @@
 package com.sleeplessdog.pimi.database.global
 
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.sleeplessdog.pimi.dictionary.group_screen.WordUi
 import com.sleeplessdog.pimi.settings.Language
 import com.sleeplessdog.pimi.settings.LanguageLevel
 
-@Entity(tableName = "GlobalDictionary")
+@Entity(
+    tableName = "GlobalDictionary",
+    indices = [Index(value = ["groupKey", "isDeleted"])]
+)
 data class GlobalDictionaryEntity(
     @PrimaryKey
     val id: Long,
